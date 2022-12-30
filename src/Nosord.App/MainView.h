@@ -1,6 +1,6 @@
 #pragma once
 
-namespace CppCLRWinFormsProject {
+namespace Nosord {
 
 	using namespace System;
 	using namespace System::ComponentModel;
