@@ -39,12 +39,39 @@ namespace Nosord {
 		}
 
 	private:
-		void LoadConfigutation(void) {
-			ConfigView^ configView = gcnew ConfigView();
-			System::Windows::Forms::DialogResult^ result = configView->ShowDialog(this);
-			delete configView;
+		/// <summary>
+		/// Loads the application configuration.
+		/// </summary>
+		void LoadConfigutation(void) 
+		{
+			// Gets the name of the executed application without extension.
+			String^ applicationName = Path::GetFileNameWithoutExtension(Application::ExecutablePath);
 
-			MessageBox::Show(Path::GetDirectoryName(Application::ExecutablePath));
+			// Gets the directory name of the application.
+			String^ applicationDirectoryName = Path::GetDirectoryName(Application::ExecutablePath);
+
+			// The configuration file path.
+			String^ configPath = Path::Combine(applicationDirectoryName, applicationName + ".config");
+
+			// Checks whether the configuration file exists.
+			if (!File::Exists(configPath)) 
+			{
+				// Creates a new instance of the ConfigView class.
+				ConfigView^ configView = gcnew ConfigView();
+				// Show application configuration view.
+				System::Windows::Forms::DialogResult cfgDialogResult = configView->ShowDialog(this);
+
+				if (cfgDialogResult == System::Windows::Forms::DialogResult::OK) {
+					// TODO: Read and load application configuration.
+					MessageBox::Show("Configuration loaded! Not implemented");
+				}
+				delete configView;
+			}
+			else 
+			{
+				// TODO: Read and load application configuration.
+				MessageBox::Show("Configuration loaded! Not implemented");
+			}
 		}
 
 		/// <summary>
