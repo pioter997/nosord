@@ -67,7 +67,7 @@ namespace Nosord {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1178, 744);
 			this->Name = L"MainView";
-			this->Text = L"MainView";
+			this->Text = L"S³ownik";
 			this->ResumeLayout(false);
 
 		}
