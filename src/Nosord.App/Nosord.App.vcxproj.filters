@@ -29,6 +29,12 @@
     <ClInclude Include="MainView.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ConfigView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertyImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Program.cpp">
@@ -41,6 +47,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MainView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

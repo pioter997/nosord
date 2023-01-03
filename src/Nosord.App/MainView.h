@@ -1,4 +1,5 @@
 #pragma once
+#include "ConfigView.h"
 
 namespace Nosord {
 
@@ -8,6 +9,7 @@ namespace Nosord {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::IO;
 
 	/// <summary>
 	/// Summary for MainView
@@ -17,6 +19,7 @@ namespace Nosord {
 	public:
 		MainView(void)
 		{
+			LoadConfigutation();
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
@@ -36,6 +39,14 @@ namespace Nosord {
 		}
 
 	private:
+		void LoadConfigutation(void) {
+			ConfigView^ configView = gcnew ConfigView();
+			System::Windows::Forms::DialogResult^ result = configView->ShowDialog(this);
+			delete configView;
+
+			MessageBox::Show(Path::GetDirectoryName(Application::ExecutablePath));
+		}
+
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -48,11 +59,17 @@ namespace Nosord {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->components = gcnew System::ComponentModel::Container();
-			this->Size = System::Drawing::Size(500,500);
-			this->Text = L"MainView";
-			this->Padding = System::Windows::Forms::Padding(0);
+			this->SuspendLayout();
+			// 
+			// MainView
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->ClientSize = System::Drawing::Size(1178, 744);
+			this->Name = L"MainView";
+			this->Text = L"MainView";
+			this->ResumeLayout(false);
+
 		}
 #pragma endregion
 	};
