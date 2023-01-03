@@ -86,6 +86,10 @@ namespace Nosord {
 	private: System::Windows::Forms::ToolStripMenuItem^ miConfig;
 	private: System::Windows::Forms::ToolStripMenuItem^ miAbout;
 	private: System::Windows::Forms::ToolStripMenuItem^ miHelp;
+	private: System::Windows::Forms::SplitContainer^ spMainView;
+	private: System::Windows::Forms::Panel^ searchPanel;
+	private: System::Windows::Forms::ListBox^ lbSearchResult;
+	private: System::Windows::Forms::TextBox^ txtTranslation;
 
 
 
@@ -101,8 +105,10 @@ namespace Nosord {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MainView::typeid));
 			this->mvPanel = (gcnew System::Windows::Forms::Panel());
+			this->spMainView = (gcnew System::Windows::Forms::SplitContainer());
+			this->lbSearchResult = (gcnew System::Windows::Forms::ListBox());
+			this->searchPanel = (gcnew System::Windows::Forms::Panel());
 			this->mMenu = (gcnew System::Windows::Forms::MenuStrip());
 			this->miFile = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->miAdd = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -113,16 +119,62 @@ namespace Nosord {
 			this->mHelp = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->miAbout = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->miHelp = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->txtTranslation = (gcnew System::Windows::Forms::TextBox());
+			this->mvPanel->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->spMainView))->BeginInit();
+			this->spMainView->Panel1->SuspendLayout();
+			this->spMainView->Panel2->SuspendLayout();
+			this->spMainView->SuspendLayout();
 			this->mMenu->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// mvPanel
 			// 
+			this->mvPanel->Controls->Add(this->spMainView);
+			this->mvPanel->Controls->Add(this->searchPanel);
 			this->mvPanel->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->mvPanel->Location = System::Drawing::Point(0, 28);
 			this->mvPanel->Name = L"mvPanel";
 			this->mvPanel->Size = System::Drawing::Size(1178, 716);
 			this->mvPanel->TabIndex = 0;
+			// 
+			// spMainView
+			// 
+			this->spMainView->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->spMainView->Location = System::Drawing::Point(0, 70);
+			this->spMainView->Name = L"spMainView";
+			// 
+			// spMainView.Panel1
+			// 
+			this->spMainView->Panel1->Controls->Add(this->lbSearchResult);
+			// 
+			// spMainView.Panel2
+			// 
+			this->spMainView->Panel2->Controls->Add(this->txtTranslation);
+			this->spMainView->Size = System::Drawing::Size(1178, 646);
+			this->spMainView->SplitterDistance = 392;
+			this->spMainView->TabIndex = 1;
+			// 
+			// lbSearchResult
+			// 
+			this->lbSearchResult->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->lbSearchResult->FormattingEnabled = true;
+			this->lbSearchResult->ItemHeight = 16;
+			this->lbSearchResult->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"home", L"knife", L"whife", L"dog" });
+			this->lbSearchResult->Location = System::Drawing::Point(0, 0);
+			this->lbSearchResult->Name = L"lbSearchResult";
+			this->lbSearchResult->Size = System::Drawing::Size(392, 646);
+			this->lbSearchResult->TabIndex = 0;
+			this->lbSearchResult->SelectedIndexChanged += gcnew System::EventHandler(this, &MainView::lbSearchResult_SelectedIndexChanged);
+			// 
+			// searchPanel
+			// 
+			this->searchPanel->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->searchPanel->Dock = System::Windows::Forms::DockStyle::Top;
+			this->searchPanel->Location = System::Drawing::Point(0, 0);
+			this->searchPanel->Name = L"searchPanel";
+			this->searchPanel->Size = System::Drawing::Size(1178, 70);
+			this->searchPanel->TabIndex = 0;
 			// 
 			// mMenu
 			// 
@@ -150,19 +202,19 @@ namespace Nosord {
 			// miAdd
 			// 
 			this->miAdd->Name = L"miAdd";
-			this->miAdd->Size = System::Drawing::Size(224, 26);
+			this->miAdd->Size = System::Drawing::Size(200, 26);
 			this->miAdd->Text = L"Dodaj";
 			// 
 			// miSep1
 			// 
 			this->miSep1->Name = L"miSep1";
-			this->miSep1->Size = System::Drawing::Size(221, 6);
+			this->miSep1->Size = System::Drawing::Size(197, 6);
 			// 
 			// miExit
 			// 
 			this->miExit->Name = L"miExit";
 			this->miExit->ShortcutKeys = static_cast<System::Windows::Forms::Keys>((System::Windows::Forms::Keys::Alt | System::Windows::Forms::Keys::F4));
-			this->miExit->Size = System::Drawing::Size(224, 26);
+			this->miExit->Size = System::Drawing::Size(200, 26);
 			this->miExit->Text = L"Zakoñcz";
 			this->miExit->Click += gcnew System::EventHandler(this, &MainView::miExit_Click);
 			// 
@@ -176,7 +228,7 @@ namespace Nosord {
 			// miConfig
 			// 
 			this->miConfig->Name = L"miConfig";
-			this->miConfig->Size = System::Drawing::Size(224, 26);
+			this->miConfig->Size = System::Drawing::Size(176, 26);
 			this->miConfig->Text = L"Konfiguracja";
 			// 
 			// mHelp
@@ -198,6 +250,15 @@ namespace Nosord {
 			this->miHelp->Size = System::Drawing::Size(162, 26);
 			this->miHelp->Text = L"Pomoc";
 			// 
+			// txtTranslation
+			// 
+			this->txtTranslation->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->txtTranslation->Location = System::Drawing::Point(0, 0);
+			this->txtTranslation->Multiline = true;
+			this->txtTranslation->Name = L"txtTranslation";
+			this->txtTranslation->Size = System::Drawing::Size(782, 646);
+			this->txtTranslation->TabIndex = 0;
+			// 
 			// MainView
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -208,6 +269,12 @@ namespace Nosord {
 			this->MainMenuStrip = this->mMenu;
 			this->Name = L"MainView";
 			this->Text = L"S³ownik";
+			this->mvPanel->ResumeLayout(false);
+			this->spMainView->Panel1->ResumeLayout(false);
+			this->spMainView->Panel2->ResumeLayout(false);
+			this->spMainView->Panel2->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->spMainView))->EndInit();
+			this->spMainView->ResumeLayout(false);
 			this->mMenu->ResumeLayout(false);
 			this->mMenu->PerformLayout();
 			this->ResumeLayout(false);
@@ -218,5 +285,8 @@ namespace Nosord {
 	private: System::Void miExit_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Close();
 	}
+private: System::Void lbSearchResult_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	this->txtTranslation->Text = "To jest t³umaczenie s³owa: " + this->lbSearchResult->Items[this->lbSearchResult->SelectedIndex]->ToString();
+}
 };
 }
