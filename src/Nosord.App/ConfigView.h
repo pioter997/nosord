@@ -39,7 +39,7 @@ namespace Nosord {
 
 	private:
 		void LoadConfigutation(void) {
-			MessageBox::Show(Path::GetDirectoryName(Application::ExecutablePath));
+			//MessageBox::Show(Path::GetDirectoryName(Application::ExecutablePath));
 		}
 	private: System::Windows::Forms::Panel^ pButtons;
 	private: System::Windows::Forms::Button^ btnCancel;
