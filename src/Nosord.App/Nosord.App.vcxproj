@@ -134,6 +134,8 @@
     <ClInclude Include="ConfigView.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="DatabaseManager.h" />
+    <ClInclude Include="DictionaryData.h" />
     <ClInclude Include="MainView.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -144,6 +146,8 @@
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="ConfigView.cpp" />
+    <ClCompile Include="DatabaseManager.cpp" />
+    <ClCompile Include="DictionaryData.cpp" />
     <ClCompile Include="Program.cpp" />
     <ClCompile Include="MainView.cpp" />
     <ClCompile Include="pch.cpp">
@@ -160,6 +164,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
