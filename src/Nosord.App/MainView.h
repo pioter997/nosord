@@ -186,7 +186,7 @@ namespace Nosord {
 			   this->mvPanel->Controls->Add(this->searchPanel);
 			   this->mvPanel->Dock = System::Windows::Forms::DockStyle::Fill;
 			   this->mvPanel->Location = System::Drawing::Point(0, 24);
-			   this->mvPanel->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			   this->mvPanel->Margin = System::Windows::Forms::Padding(2);
 			   this->mvPanel->Name = L"mvPanel";
 			   this->mvPanel->Size = System::Drawing::Size(736, 466);
 			   this->mvPanel->TabIndex = 0;
@@ -195,7 +195,7 @@ namespace Nosord {
 			   // 
 			   this->spMainView->Dock = System::Windows::Forms::DockStyle::Fill;
 			   this->spMainView->Location = System::Drawing::Point(0, 38);
-			   this->spMainView->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			   this->spMainView->Margin = System::Windows::Forms::Padding(2);
 			   this->spMainView->Name = L"spMainView";
 			   // 
 			   // spMainView.Panel1
@@ -224,7 +224,7 @@ namespace Nosord {
 			   this->lbSearchResult->FormattingEnabled = true;
 			   this->lbSearchResult->ItemHeight = 17;
 			   this->lbSearchResult->Location = System::Drawing::Point(9, 5);
-			   this->lbSearchResult->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			   this->lbSearchResult->Margin = System::Windows::Forms::Padding(2);
 			   this->lbSearchResult->Name = L"lbSearchResult";
 			   this->lbSearchResult->Size = System::Drawing::Size(230, 412);
 			   this->lbSearchResult->TabIndex = 0;
@@ -232,9 +232,9 @@ namespace Nosord {
 			   // 
 			   // btnDelete
 			   // 
-			   this->btnDelete->Anchor = System::Windows::Forms::AnchorStyles::Right;
-			   this->btnDelete->Location = System::Drawing::Point(366, 392);
-			   this->btnDelete->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			   this->btnDelete->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
+			   this->btnDelete->Location = System::Drawing::Point(367, 392);
+			   this->btnDelete->Margin = System::Windows::Forms::Padding(2);
 			   this->btnDelete->Name = L"btnDelete";
 			   this->btnDelete->Size = System::Drawing::Size(56, 22);
 			   this->btnDelete->TabIndex = 2;
@@ -243,9 +243,9 @@ namespace Nosord {
 			   // 
 			   // btnSave
 			   // 
-			   this->btnSave->Anchor = System::Windows::Forms::AnchorStyles::Right;
-			   this->btnSave->Location = System::Drawing::Point(427, 392);
-			   this->btnSave->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			   this->btnSave->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
+			   this->btnSave->Location = System::Drawing::Point(428, 392);
+			   this->btnSave->Margin = System::Windows::Forms::Padding(2);
 			   this->btnSave->Name = L"btnSave";
 			   this->btnSave->Size = System::Drawing::Size(56, 22);
 			   this->btnSave->TabIndex = 1;
@@ -260,10 +260,10 @@ namespace Nosord {
 			   this->txtTranslation->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(238)));
 			   this->txtTranslation->Location = System::Drawing::Point(2, 5);
-			   this->txtTranslation->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			   this->txtTranslation->Margin = System::Windows::Forms::Padding(2);
 			   this->txtTranslation->Multiline = true;
 			   this->txtTranslation->Name = L"txtTranslation";
-			   this->txtTranslation->Size = System::Drawing::Size(482, 383);
+			   this->txtTranslation->Size = System::Drawing::Size(483, 383);
 			   this->txtTranslation->TabIndex = 0;
 			   // 
 			   // searchPanel
@@ -273,7 +273,7 @@ namespace Nosord {
 			   this->searchPanel->Controls->Add(this->txtSearch);
 			   this->searchPanel->Dock = System::Windows::Forms::DockStyle::Top;
 			   this->searchPanel->Location = System::Drawing::Point(0, 0);
-			   this->searchPanel->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			   this->searchPanel->Margin = System::Windows::Forms::Padding(2);
 			   this->searchPanel->Name = L"searchPanel";
 			   this->searchPanel->Size = System::Drawing::Size(736, 38);
 			   this->searchPanel->TabIndex = 0;
@@ -283,7 +283,7 @@ namespace Nosord {
 			   this->btnAdd->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			   this->btnAdd->BackColor = System::Drawing::SystemColors::Control;
 			   this->btnAdd->Location = System::Drawing::Point(671, 11);
-			   this->btnAdd->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			   this->btnAdd->Margin = System::Windows::Forms::Padding(2);
 			   this->btnAdd->Name = L"btnAdd";
 			   this->btnAdd->Size = System::Drawing::Size(56, 22);
 			   this->btnAdd->TabIndex = 1;
@@ -297,7 +297,7 @@ namespace Nosord {
 			   this->txtSearch->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(238)));
 			   this->txtSearch->Location = System::Drawing::Point(9, 10);
-			   this->txtSearch->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			   this->txtSearch->Margin = System::Windows::Forms::Padding(2);
 			   this->txtSearch->Name = L"txtSearch";
 			   this->txtSearch->Size = System::Drawing::Size(659, 23);
 			   this->txtSearch->TabIndex = 0;
@@ -386,7 +386,7 @@ namespace Nosord {
 			   this->Controls->Add(this->mvPanel);
 			   this->Controls->Add(this->mMenu);
 			   this->MainMenuStrip = this->mMenu;
-			   this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			   this->Margin = System::Windows::Forms::Padding(2);
 			   this->Name = L"MainView";
 			   this->Text = L"S³ownik";
 			   this->mvPanel->ResumeLayout(false);
@@ -407,15 +407,20 @@ namespace Nosord {
 	private: System::Void miExit_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Close();
 	}
-	private: System::Void lbSearchResult_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-
+	private: System::Void lbSearchResult_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) 
+	{
 		this->txtTranslation->Text = this->lbSearchResult->SelectedIndex.ToString();
-
-		/*String^ key = this->lbSearchResult->Items[this->lbSearchResult->SelectedIndex]
-			this->dictionaryData->Items[key]*/
-		/*this->txtTranslation->Text = "To jest t³umaczenie s³owa: " + this->lbSearchResult->Items[this->lbSearchResult->SelectedIndex]->ToString();
-		String^ key = this->lbSearchResult->Items[this->lbSearchResult->SelectedIndex]->ToString();
-		this->txtTranslation->Text = "To jest t³umaczenie s³owa:" + System::Environment::NewLine + this->dictionaryData->Items[key];*/
+		if (this->lbSearchResult->SelectedIndex != -1)
+		{
+			auto selectedWord = this->lbSearchResult->SelectedItem->ToString();
+			if (this->dictionaryData->Items->ContainsKey(selectedWord)) {
+				auto value = this->dictionaryData->Items[selectedWord];
+				this->txtTranslation->Text =
+					"<--- " + this->dictionaryData->Name + " --->" + System::Environment::NewLine +
+					"    " + selectedWord + System::Environment::NewLine +
+					"    " + value;
+			}
+		}
 	}
 	private: System::Void txtSearch_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 		String^ value = this->txtSearch->Text;
