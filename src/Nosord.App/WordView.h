@@ -11,15 +11,24 @@ namespace Nosord {
 	using namespace System::IO;
 
 	/// <summary>
-	/// Summary for WordView
+	/// A view responsible for adding and editing dictionary words.
 	/// </summary>
 	public ref class WordView : public System::Windows::Forms::Form
 	{
 	public:
+		/// <summary>
+		/// Initializes a new instance of the WordView class.
+		/// </summary>
 		WordView()
 		{
 			InitializeComponent();
 		}
+
+		/// <summary>
+		/// Initializes a new instance of the WordView class.
+		/// </summary>
+		/// <param name="word">The dictionary key.</param>
+		/// <param name="translation">The dictionary value.</param>
 		WordView(String^ word, String^ translation) : WordView()
 		{
 			this->txtWord->Text = word;
@@ -27,15 +36,22 @@ namespace Nosord {
 			this->rtbTranslation->Select();
 		}
 
+		/// <summary>
+		/// Returns the word to be translated.
+		/// </summary>
 		String^ GetWord()
 		{
 			return this->txtWord->Text;
 		}
 
+		/// <summary>
+		/// Returns a translation of the word.
+		/// </summary>
 		String^ GetTranslation()
 		{
 			return this->rtbTranslation->Text;
 		}
+
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.

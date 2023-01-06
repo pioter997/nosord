@@ -11,7 +11,7 @@ namespace Nosord {
 	using namespace System::IO;
 
 	/// <summary>
-	/// Summary for ConfigView
+	/// A view responsible for editing application configuration.
 	/// </summary>
 	public ref class ConfigView : public System::Windows::Forms::Form
 	{
@@ -49,7 +49,6 @@ namespace Nosord {
 	private: System::Windows::Forms::TabPage^ tabPageOther;
 	private: System::Windows::Forms::GroupBox^ gbDatabase;
 	private: System::Windows::Forms::Button^ btnBrowse;
-
 	private: System::Windows::Forms::TextBox^ txtDatabase;
 	private: System::Windows::Forms::OpenFileDialog^ openFileDialog;
 	private: System::Windows::Forms::Label^ lblDatabaseFile;
@@ -73,10 +72,10 @@ namespace Nosord {
 			this->tabPageDefault = (gcnew System::Windows::Forms::TabPage());
 			this->gbDatabase = (gcnew System::Windows::Forms::GroupBox());
 			this->btnBrowse = (gcnew System::Windows::Forms::Button());
+			this->lblDatabaseFile = (gcnew System::Windows::Forms::Label());
 			this->txtDatabase = (gcnew System::Windows::Forms::TextBox());
 			this->tabPageOther = (gcnew System::Windows::Forms::TabPage());
 			this->openFileDialog = (gcnew System::Windows::Forms::OpenFileDialog());
-			this->lblDatabaseFile = (gcnew System::Windows::Forms::Label());
 			this->pButtons->SuspendLayout();
 			this->tabControl->SuspendLayout();
 			this->tabPageDefault->SuspendLayout();
@@ -89,29 +88,29 @@ namespace Nosord {
 			this->pButtons->Controls->Add(this->btnCancel);
 			this->pButtons->Controls->Add(this->btnSave);
 			this->pButtons->Dock = System::Windows::Forms::DockStyle::Bottom;
-			this->pButtons->Location = System::Drawing::Point(0, 376);
-			this->pButtons->Margin = System::Windows::Forms::Padding(5, 5, 5, 5);
+			this->pButtons->Location = System::Drawing::Point(0, 389);
+			this->pButtons->Margin = System::Windows::Forms::Padding(5);
 			this->pButtons->Name = L"pButtons";
-			this->pButtons->Size = System::Drawing::Size(779, 68);
+			this->pButtons->Size = System::Drawing::Size(779, 55);
 			this->pButtons->TabIndex = 0;
 			// 
 			// btnCancel
 			// 
 			this->btnCancel->DialogResult = System::Windows::Forms::DialogResult::Cancel;
-			this->btnCancel->Location = System::Drawing::Point(480, 17);
-			this->btnCancel->Margin = System::Windows::Forms::Padding(5, 5, 5, 5);
+			this->btnCancel->Location = System::Drawing::Point(605, 14);
+			this->btnCancel->Margin = System::Windows::Forms::Padding(5);
 			this->btnCancel->Name = L"btnCancel";
-			this->btnCancel->Size = System::Drawing::Size(133, 34);
+			this->btnCancel->Size = System::Drawing::Size(75, 27);
 			this->btnCancel->TabIndex = 1;
 			this->btnCancel->Text = L"Anuluj";
 			this->btnCancel->UseVisualStyleBackColor = true;
 			// 
 			// btnSave
 			// 
-			this->btnSave->Location = System::Drawing::Point(624, 17);
-			this->btnSave->Margin = System::Windows::Forms::Padding(5, 5, 5, 5);
+			this->btnSave->Location = System::Drawing::Point(690, 14);
+			this->btnSave->Margin = System::Windows::Forms::Padding(5);
 			this->btnSave->Name = L"btnSave";
-			this->btnSave->Size = System::Drawing::Size(133, 34);
+			this->btnSave->Size = System::Drawing::Size(75, 27);
 			this->btnSave->TabIndex = 0;
 			this->btnSave->Text = L"Zapisz";
 			this->btnSave->UseVisualStyleBackColor = true;
@@ -124,21 +123,21 @@ namespace Nosord {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->tabControl->Controls->Add(this->tabPageDefault);
 			this->tabControl->Controls->Add(this->tabPageOther);
-			this->tabControl->Location = System::Drawing::Point(16, 15);
-			this->tabControl->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->tabControl->Location = System::Drawing::Point(13, 15);
+			this->tabControl->Margin = System::Windows::Forms::Padding(4);
 			this->tabControl->Name = L"tabControl";
 			this->tabControl->SelectedIndex = 0;
-			this->tabControl->Size = System::Drawing::Size(747, 353);
+			this->tabControl->Size = System::Drawing::Size(752, 365);
 			this->tabControl->TabIndex = 1;
 			// 
 			// tabPageDefault
 			// 
 			this->tabPageDefault->Controls->Add(this->gbDatabase);
 			this->tabPageDefault->Location = System::Drawing::Point(4, 25);
-			this->tabPageDefault->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->tabPageDefault->Margin = System::Windows::Forms::Padding(4);
 			this->tabPageDefault->Name = L"tabPageDefault";
-			this->tabPageDefault->Padding = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->tabPageDefault->Size = System::Drawing::Size(739, 324);
+			this->tabPageDefault->Padding = System::Windows::Forms::Padding(4);
+			this->tabPageDefault->Size = System::Drawing::Size(744, 336);
 			this->tabPageDefault->TabIndex = 0;
 			this->tabPageDefault->Text = L"Domyœlne";
 			this->tabPageDefault->UseVisualStyleBackColor = true;
@@ -149,9 +148,9 @@ namespace Nosord {
 			this->gbDatabase->Controls->Add(this->lblDatabaseFile);
 			this->gbDatabase->Controls->Add(this->txtDatabase);
 			this->gbDatabase->Location = System::Drawing::Point(8, 7);
-			this->gbDatabase->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->gbDatabase->Margin = System::Windows::Forms::Padding(4);
 			this->gbDatabase->Name = L"gbDatabase";
-			this->gbDatabase->Padding = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->gbDatabase->Padding = System::Windows::Forms::Padding(4);
 			this->gbDatabase->Size = System::Drawing::Size(720, 90);
 			this->gbDatabase->TabIndex = 0;
 			this->gbDatabase->TabStop = false;
@@ -160,7 +159,7 @@ namespace Nosord {
 			// btnBrowse
 			// 
 			this->btnBrowse->Location = System::Drawing::Point(612, 37);
-			this->btnBrowse->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->btnBrowse->Margin = System::Windows::Forms::Padding(4);
 			this->btnBrowse->Name = L"btnBrowse";
 			this->btnBrowse->Size = System::Drawing::Size(100, 28);
 			this->btnBrowse->TabIndex = 2;
@@ -168,10 +167,20 @@ namespace Nosord {
 			this->btnBrowse->UseVisualStyleBackColor = true;
 			this->btnBrowse->Click += gcnew System::EventHandler(this, &ConfigView::btnBrowse_Click);
 			// 
+			// lblDatabaseFile
+			// 
+			this->lblDatabaseFile->AutoSize = true;
+			this->lblDatabaseFile->Location = System::Drawing::Point(8, 20);
+			this->lblDatabaseFile->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->lblDatabaseFile->Name = L"lblDatabaseFile";
+			this->lblDatabaseFile->Size = System::Drawing::Size(108, 16);
+			this->lblDatabaseFile->TabIndex = 1;
+			this->lblDatabaseFile->Text = L"Plik bazy danych";
+			// 
 			// txtDatabase
 			// 
 			this->txtDatabase->Location = System::Drawing::Point(8, 39);
-			this->txtDatabase->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtDatabase->Margin = System::Windows::Forms::Padding(4);
 			this->txtDatabase->Name = L"txtDatabase";
 			this->txtDatabase->Size = System::Drawing::Size(595, 22);
 			this->txtDatabase->TabIndex = 0;
@@ -179,10 +188,10 @@ namespace Nosord {
 			// tabPageOther
 			// 
 			this->tabPageOther->Location = System::Drawing::Point(4, 25);
-			this->tabPageOther->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->tabPageOther->Margin = System::Windows::Forms::Padding(4);
 			this->tabPageOther->Name = L"tabPageOther";
-			this->tabPageOther->Padding = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->tabPageOther->Size = System::Drawing::Size(739, 324);
+			this->tabPageOther->Padding = System::Windows::Forms::Padding(4);
+			this->tabPageOther->Size = System::Drawing::Size(744, 324);
 			this->tabPageOther->TabIndex = 1;
 			this->tabPageOther->Text = L"Inne";
 			this->tabPageOther->UseVisualStyleBackColor = true;
@@ -192,16 +201,6 @@ namespace Nosord {
 			this->openFileDialog->CheckFileExists = false;
 			this->openFileDialog->FileName = L"pl_en.dict";
 			this->openFileDialog->Filter = L"Pliki bazy danych|*.dict|All files|*.*";
-			// 
-			// lblDatabaseFile
-			// 
-			this->lblDatabaseFile->AutoSize = true;
-			this->lblDatabaseFile->Location = System::Drawing::Point(8, 20);
-			this->lblDatabaseFile->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->lblDatabaseFile->Name = L"lblDatabaseFile";
-			this->lblDatabaseFile->Size = System::Drawing::Size(90, 13);
-			this->lblDatabaseFile->TabIndex = 1;
-			this->lblDatabaseFile->Text = L"Plik bazy danych";
 			// 
 			// ConfigView
 			// 

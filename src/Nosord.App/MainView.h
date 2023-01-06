@@ -49,6 +49,8 @@ namespace Nosord {
 		}
 
 	private:
+		DictionaryData^ dictionaryData;
+	
 		/// <summary>
 		/// Loads the application configuration.
 		/// </summary>
@@ -118,12 +120,10 @@ namespace Nosord {
 		}
 	private: System::Windows::Forms::Panel^ mvPanel;
 	private: System::Windows::Forms::MenuStrip^ mMenu;
-
 	private: System::Windows::Forms::ToolStripMenuItem^ miFile;
 	private: System::Windows::Forms::ToolStripMenuItem^ miAdd;
 	private: System::Windows::Forms::ToolStripMenuItem^ miTools;
 	private: System::Windows::Forms::ToolStripMenuItem^ mHelp;
-
 	private: System::Windows::Forms::ToolStripSeparator^ miSep1;
 	private: System::Windows::Forms::ToolStripMenuItem^ miExit;
 	private: System::Windows::Forms::ToolStripMenuItem^ miConfig;
@@ -132,17 +132,11 @@ namespace Nosord {
 	private: System::Windows::Forms::SplitContainer^ spMainView;
 	private: System::Windows::Forms::Panel^ searchPanel;
 	private: System::Windows::Forms::ListBox^ lbSearchResult;
-
 	private: System::Windows::Forms::TextBox^ txtSearch;
 	private: System::Windows::Forms::Button^ btnDelete;
-private: System::Windows::Forms::Button^ btnEdit;
-
+    private: System::Windows::Forms::Button^ btnEdit;
 	private: System::Windows::Forms::Button^ btnAdd;
-
-	private: DictionaryData^ dictionaryData;
 	private: System::Windows::Forms::RichTextBox^ rtbTranslation;
-
-
 
 		   /// <summary>
 		   /// Required designer variable.
@@ -366,6 +360,7 @@ private: System::Windows::Forms::Button^ btnEdit;
 			   this->miConfig->Name = L"miConfig";
 			   this->miConfig->Size = System::Drawing::Size(141, 22);
 			   this->miConfig->Text = L"Konfiguracja";
+			   this->miConfig->Click += gcnew System::EventHandler(this, &MainView::miConfig_Click);
 			   // 
 			   // mHelp
 			   // 
@@ -383,7 +378,7 @@ private: System::Windows::Forms::Button^ btnEdit;
 			   // miHelp
 			   // 
 			   this->miHelp->Name = L"miHelp";
-			   this->miHelp->Size = System::Drawing::Size(129, 22);
+			   this->miHelp->Size = System::Drawing::Size(162, 26);
 			   this->miHelp->Text = L"Pomoc";
 			   // 
 			   // MainView
@@ -411,16 +406,32 @@ private: System::Windows::Forms::Button^ btnEdit;
 
 		   }
 #pragma endregion
+
+		/// <summary>
+		/// Occurs when the miExit menu item is clicked.
+		/// </summary>
+		/// <remarks>
+		/// https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.control.click?view=windowsdesktop-7.0#definition
+		/// </remarks>
 		private: System::Void miExit_Click(System::Object^ sender, System::EventArgs^ e) 
 		{
 			this->Close();
 		}
 
+		/// <summary>
+		/// Occurs when the lbSearchResult->SelectedIndex property or the SelectedIndices collection has changed.
+		/// </summary>
+		/// <remarks>
+		/// https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.listbox.selectedindexchanged?view=windowsdesktop-7.0#definition
+		/// </remarks>
 		private: System::Void lbSearchResult_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e)
 		{
+			// Disable delete and edit button
 			this->btnDelete->Enabled = false;
 			this->btnEdit->Enabled = false;
 
+			// Checks if the index of lbSearchResult->SelectedIndex property is different from -1
+			// which means that there is a selected element.
 			if (this->lbSearchResult->SelectedIndex != -1)
 			{
 				auto selectedWord = this->lbSearchResult->SelectedItem->ToString();
@@ -444,16 +455,21 @@ private: System::Windows::Forms::Button^ btnEdit;
 					// Display translation
 					this->rtbTranslation->SelectionColor = Color::Black;
 					this->rtbTranslation->SelectionFont = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(238)));
-					this->rtbTranslation->SelectedText = "-----" + System::Environment::NewLine + value;
+					this->rtbTranslation->SelectedText = "----------" + System::Environment::NewLine + value;
 
 					this->rtbTranslation->ReadOnly = true;
-
 					this->btnDelete->Enabled = true;
 					this->btnEdit->Enabled = true;
 				}
 			}
 		}
 
+		/// <summary>
+		/// Occurs when the txtSearch->Text property value changes.
+		/// </summary>
+		/// <remarks>
+		/// https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.control.textchanged?view=windowsdesktop-7.0#definition
+		/// </remarks>
 		private: System::Void txtSearch_TextChanged(System::Object^ sender, System::EventArgs^ e) 
 		{
 			// Gets the search value
@@ -466,22 +482,27 @@ private: System::Windows::Forms::Button^ btnEdit;
 			this->btnDelete->Enabled = false;
 			this->btnEdit->Enabled = false;
 
-			// Cleans up the content of the translation
+			// Clears all text from the translation text box
 			this->rtbTranslation->Clear();
 
+			// Checks whether the search value is not null or empty
 			if (!String::IsNullOrEmpty(value))
 			{
 				for (int i = 0; i < this->dictionaryData->Items->Count; i++)
 				{
+					// Gets key value from the dictionary data items
 					String^ key = this->dictionaryData->Items->Keys[i];
+
+					// If the key value starts with the value you are looking for
 					if (key->StartsWith(value))
 					{
+						// Adds a key to the list of found words
 						this->lbSearchResult->Items->Add(key);
 					}
 				}
 				// Checks whether the specified word exists in the dictionary
 				auto valueExists = this->dictionaryData->Items->ContainsKey(value);
-				// If the word exists block the addition of a new word
+				// If the word exists disable the addition of a new word
 				this->btnAdd->Enabled = !valueExists;
 			}
 			else
@@ -491,15 +512,21 @@ private: System::Windows::Forms::Button^ btnEdit;
 			}
 		}
 
+		/// <summary>
+		/// Occurs when the btnAdd button is clicked.
+		/// </summary>
 		private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e)
 		{
 			// Gets the search value
-			String^ value = this->txtSearch->Text;
-			auto view = gcnew WordView(value, "");
+			String^ searchValue = this->txtSearch->Text;
+			auto view = gcnew WordView(searchValue, "");
 			OpenWordDialog(view);
 			delete view;
 		}
 
+		/// <summary>
+		/// Occurs when the btnEdit button is clicked.
+		/// </summary>
 		private: System::Void btnEdit_Click(System::Object^ sender, System::EventArgs^ e) 
 		{
 			// Gets selected word
@@ -517,10 +544,14 @@ private: System::Windows::Forms::Button^ btnEdit;
 			}
 		}
 
+		/// <summary>
+		/// Opens dialog window to add or edit word translation.
+		/// </summary>
 		private: System::Void OpenWordDialog(WordView^ view)
 		{
 			auto dialogResult = view->ShowDialog(this);
-			if (dialogResult == Windows::Forms::DialogResult::OK) {
+			if (dialogResult == Windows::Forms::DialogResult::OK)
+			{
 				String^ translation = view->GetTranslation();
 				String^ word = view->GetWord();
 				if (this->dictionaryData->Items->ContainsKey(word))
@@ -532,11 +563,24 @@ private: System::Windows::Forms::Button^ btnEdit;
 					this->dictionaryData->Items->Add(word, translation);
 					this->lbSearchResult->Items->Add(word);
 				}
-
 				auto prevIndex = this->lbSearchResult->SelectedIndex;
 				this->lbSearchResult->SelectedIndex = -1;
 				this->lbSearchResult->SelectedIndex = prevIndex;
 			}
 		}
-};
+
+		/// <summary>
+		/// Opens the application configuration dialog.
+		/// </summary>
+		private: System::Void miConfig_Click(System::Object^ sender, System::EventArgs^ e)
+		{
+			auto view = gcnew ConfigView();
+			auto dialogResult = view->ShowDialog(this);
+			if (dialogResult == Windows::Forms::DialogResult::OK)
+			{
+				MessageBox::Show("Not implemented");
+			}
+			delete view;
+		}
+	};
 }
