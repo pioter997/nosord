@@ -1,4 +1,5 @@
 #pragma once
+#include "AppConfiguration.h"
 
 namespace Nosord {
 
@@ -16,13 +17,11 @@ namespace Nosord {
 	public ref class ConfigView : public System::Windows::Forms::Form
 	{
 	public:
-		ConfigView(void)
+		ConfigView(AppConfiguration^ appConfiguration)
 		{
-			LoadConfigutation();
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
+			this->appConfiguration = appConfiguration;
+			LoadConfiguration();
 		}
 
 	protected:
@@ -37,10 +36,7 @@ namespace Nosord {
 			}
 		}
 
-	private:
-		void LoadConfigutation(void) {
-			//MessageBox::Show(Path::GetDirectoryName(Application::ExecutablePath));
-		}
+	private: AppConfiguration^ appConfiguration;
 	private: System::Windows::Forms::Panel^ pButtons;
 	private: System::Windows::Forms::Button^ btnCancel;
 	private: System::Windows::Forms::Button^ btnSave;
@@ -231,11 +227,21 @@ namespace Nosord {
 		}
 #pragma endregion
 
+		private: System::Void LoadConfiguration()
+		{
+			txtDatabase->Text = this->appConfiguration->DatabaseFilePath;
+		}
+
 		/// <summary>
 		/// Zapis pliku konfiguracyjnego s³ownika
 		/// </summary>
 		private: System::Void btnSave_Click(System::Object^ sender, System::EventArgs^ e) {
-			
+
+			this->DialogResult = Windows::Forms::DialogResult::OK;
+
+			appConfiguration->DatabaseFilePath = txtDatabase->Text;
+
+			this->Close();
 		}
 
 		/// <summary>

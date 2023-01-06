@@ -39,6 +39,14 @@ namespace Nosord {
 
 			return dictionaryData;
 		}
+
+		System::Void SaveDictionaryData(DictionaryData^ dictionaryData)
+		{
+			auto binaryFormatter = gcnew BinaryFormatter();
+			auto fileStream = File::Create(dictionaryFilePath);
+			binaryFormatter->Serialize(fileStream, dictionaryData);
+			fileStream->Close();
+		}
 	private:
 		String^ dictionaryName;
 		String^ dictionaryDescription;

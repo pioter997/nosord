@@ -43,6 +43,8 @@ namespace Nosord {
 		}
 
 	private:
+		AppConfiguration^ appConfiguration;
+		DictionaryManager^ dictionaryManager;
 		DictionaryData^ dictionaryData;
 	
 		/// <summary>
@@ -74,22 +76,22 @@ namespace Nosord {
 				}
 
 				String^ defaultDictionaryFilePath = Path::Combine(dataDirectory, defaultDictionaryFileName);
-				auto dictionaryManager = gcnew DictionaryManager(defaultDictionaryName, defaultDictionaryDescription, defaultDictionaryFilePath);
+				dictionaryManager = gcnew DictionaryManager(defaultDictionaryName, defaultDictionaryDescription, defaultDictionaryFilePath);
 				this->dictionaryData = dictionaryManager->GetDictionaryData();
 
 				auto configFileStream = File::Create(configPath);
-				auto config = gcnew AppConfiguration();
-				config->DatabaseFilePath = defaultDictionaryFilePath;
-				binaryFormatter->Serialize(configFileStream, config);
+				appConfiguration = gcnew AppConfiguration();
+				appConfiguration->DatabaseFilePath = defaultDictionaryFilePath;
+				binaryFormatter->Serialize(configFileStream, appConfiguration);
 				configFileStream->Close();
 			}
 			else
 			{
 				auto configFileStream = File::OpenRead(configPath);
 				configFileStream->Position = 0;
-				auto config = (AppConfiguration^)(binaryFormatter->Deserialize(configFileStream));
+				appConfiguration = (AppConfiguration^)(binaryFormatter->Deserialize(configFileStream));
 				configFileStream->Close();
-				auto dictionaryManager = gcnew DictionaryManager(config->DatabaseFilePath);
+				dictionaryManager = gcnew DictionaryManager(appConfiguration->DatabaseFilePath);
 				this->dictionaryData = dictionaryManager->GetDictionaryData();
 			}
 		}
@@ -227,6 +229,7 @@ namespace Nosord {
 			   this->btnDelete->TabIndex = 2;
 			   this->btnDelete->Text = L"Usuñ";
 			   this->btnDelete->UseVisualStyleBackColor = true;
+			   this->btnDelete->Click += gcnew System::EventHandler(this, &MainView::btnDelete_Click);
 			   // 
 			   // btnEdit
 			   // 
@@ -556,6 +559,27 @@ namespace Nosord {
 					this->lbSearchResult->SelectedIndex = prevIndex;
 				}
 
+				dictionaryManager->SaveDictionaryData(this->dictionaryData);
+			}
+		}
+
+		/// <summary>
+		/// Occurs when the btnDelete button is clicked.
+		/// </summary>
+		private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e)
+		{
+			// Gets selected word
+			if (this->lbSearchResult->SelectedIndex != -1)
+			{
+				auto selectedWord = this->lbSearchResult->SelectedItem->ToString();
+				if (this->dictionaryData->Items->ContainsKey(selectedWord))
+				{
+					this->rtbTranslation->Clear();
+					this->lbSearchResult->SelectedIndex = -1;
+					this->dictionaryData->Items->Remove(selectedWord);
+					this->lbSearchResult->Items->Remove(selectedWord);
+					dictionaryManager->SaveDictionaryData(this->dictionaryData);
+				}
 			}
 		}
 
@@ -564,7 +588,7 @@ namespace Nosord {
 		/// </summary>
 		private: System::Void miConfig_Click(System::Object^ sender, System::EventArgs^ e)
 		{
-			auto view = gcnew ConfigView();
+			auto view = gcnew ConfigView(this->appConfiguration);
 			auto dialogResult = view->ShowDialog(this);
 			if (dialogResult == Windows::Forms::DialogResult::OK)
 			{
