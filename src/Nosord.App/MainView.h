@@ -1,5 +1,6 @@
 #pragma once
 #include "ConfigView.h"
+#include "WordView.h"
 #include "DictionaryData.h"
 
 namespace Nosord {
@@ -57,7 +58,7 @@ namespace Nosord {
 			auto binaryFormatter = gcnew BinaryFormatter();
 			FileStream^ dictFileStream;
 
-			if (false)
+			if (!File::Exists(dictionaryFileName))
 			{
 				dictFileStream = File::Create(dictionaryFileName);
 				this->dictionaryData = gcnew DictionaryData();
@@ -242,7 +243,7 @@ private: System::Windows::Forms::Button^ btnEdit;
 				   static_cast<System::Byte>(238)));
 			   this->rtbTranslation->Location = System::Drawing::Point(0, 5);
 			   this->rtbTranslation->Name = L"rtbTranslation";
-			   this->rtbTranslation->Size = System::Drawing::Size(485, 382);
+			   this->rtbTranslation->Size = System::Drawing::Size(486, 382);
 			   this->rtbTranslation->TabIndex = 3;
 			   this->rtbTranslation->Text = L"";
 			   // 
@@ -250,7 +251,7 @@ private: System::Windows::Forms::Button^ btnEdit;
 			   // 
 			   this->btnDelete->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
 			   this->btnDelete->Enabled = false;
-			   this->btnDelete->Location = System::Drawing::Point(368, 392);
+			   this->btnDelete->Location = System::Drawing::Point(369, 392);
 			   this->btnDelete->Margin = System::Windows::Forms::Padding(2);
 			   this->btnDelete->Name = L"btnDelete";
 			   this->btnDelete->Size = System::Drawing::Size(56, 22);
@@ -262,13 +263,14 @@ private: System::Windows::Forms::Button^ btnEdit;
 			   // 
 			   this->btnEdit->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
 			   this->btnEdit->Enabled = false;
-			   this->btnEdit->Location = System::Drawing::Point(429, 392);
+			   this->btnEdit->Location = System::Drawing::Point(430, 392);
 			   this->btnEdit->Margin = System::Windows::Forms::Padding(2);
 			   this->btnEdit->Name = L"btnEdit";
 			   this->btnEdit->Size = System::Drawing::Size(56, 22);
 			   this->btnEdit->TabIndex = 1;
 			   this->btnEdit->Text = L"Edytuj";
 			   this->btnEdit->UseVisualStyleBackColor = true;
+			   this->btnEdit->Click += gcnew System::EventHandler(this, &MainView::btnEdit_Click);
 			   // 
 			   // searchPanel
 			   // 
@@ -422,7 +424,8 @@ private: System::Windows::Forms::Button^ btnEdit;
 			if (this->lbSearchResult->SelectedIndex != -1)
 			{
 				auto selectedWord = this->lbSearchResult->SelectedItem->ToString();
-				if (this->dictionaryData->Items->ContainsKey(selectedWord)) {
+				if (this->dictionaryData->Items->ContainsKey(selectedWord)) 
+				{
 					auto value = this->dictionaryData->Items[selectedWord];
 					// https://www.c-sharpcorner.com/UploadFile/mahesh/richtextbox-in-C-Sharp/
 					// Cleans up the content of the translation
@@ -490,7 +493,35 @@ private: System::Windows::Forms::Button^ btnEdit;
 
 		private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e)
 		{
+			// Gets the search value
+			String^ value = this->txtSearch->Text;
+			auto view = gcnew WordView(value, "");
+			OpenWordDialog(view);
+		}
 
+		private: System::Void btnEdit_Click(System::Object^ sender, System::EventArgs^ e) 
+		{
+			// Gets selected word
+			if (this->lbSearchResult->SelectedIndex != -1)
+			{
+				auto selectedWord = this->lbSearchResult->SelectedItem->ToString();
+				if (this->dictionaryData->Items->ContainsKey(selectedWord))
+				{
+					auto value = this->dictionaryData->Items[selectedWord];
+
+					auto view = gcnew WordView(selectedWord, value);
+					OpenWordDialog(view);
+				}
+			}
+		}
+
+		private: System::Void OpenWordDialog(WordView^ view)
+		{
+			auto dialogResult = view->ShowDialog(this);
+			if (dialogResult == Windows::Forms::DialogResult::OK) {
+				MessageBox::Show("Not implemented");
+			}
+			delete view;
 		}
 };
 }
