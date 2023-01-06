@@ -2,6 +2,8 @@
 #include "ConfigView.h"
 #include "WordView.h"
 #include "DictionaryData.h"
+#include "DictionaryManager.h"
+#include "AppConfiguration.h"
 
 namespace Nosord {
 
@@ -24,16 +26,8 @@ namespace Nosord {
 	public:
 		MainView(void)
 		{
-			LoadConfigutation();
 			InitializeComponent();
-
-			this->lbSearchResult->Items->Clear();
-
-			//for (int i = 0; i < this->dictionaryData->Items->Count; i++)
-			//{
-			//	String^ key = this->dictionaryData->Items->Keys[i];
-			//	this->lbSearchResult->Items->Add(key);
-			//}
+			LoadConfigutation();
 		}
 
 	protected:
@@ -56,66 +50,47 @@ namespace Nosord {
 		/// </summary>
 		void LoadConfigutation(void)
 		{
-			String^ dictionaryFileName = "pl-en.dict";
 			auto binaryFormatter = gcnew BinaryFormatter();
-			FileStream^ dictFileStream;
 
-			if (!File::Exists(dictionaryFileName))
-			{
-				dictFileStream = File::Create(dictionaryFileName);
-				this->dictionaryData = gcnew DictionaryData();
-				dictionaryData->Name = "pl-en";
-				dictionaryData->Description = "S³ownik polsko-angielski";
-
-				dictionaryData->Items->Add("dom", "home");
-				dictionaryData->Items->Add("wyjœcie", "exit");
-				dictionaryData->Items->Add("koniec", "end");
-				dictionaryData->Items->Add("kot", "cat");
-				dictionaryData->Items->Add("pies", "dog");
-
-				for (int i = 0; i < 100; i++)
-				{
-					dictionaryData->Items->Add("wyraz_" + i, "tlumaczenie_" + i);
-				}
-
-				binaryFormatter->Serialize(dictFileStream, dictionaryData);
-				dictFileStream->Close();
-			}
-			else
-			{
-				dictFileStream = File::OpenRead(dictionaryFileName);
-				dictFileStream->Position = 0;
-				this->dictionaryData = (DictionaryData^)(binaryFormatter->Deserialize(dictFileStream));
-				dictFileStream->Close();
-			}
-
-			// Gets the name of the executed application without extension.
+			// Gets the name of the executed application without extension
 			String^ applicationName = Path::GetFileNameWithoutExtension(Application::ExecutablePath);
 
-			// Gets the directory name of the application.
+			// Gets the directory name of the application
 			String^ applicationDirectoryName = Path::GetDirectoryName(Application::ExecutablePath);
 
-			// The configuration file path.
+			// The configuration file path
 			String^ configPath = Path::Combine(applicationDirectoryName, applicationName + ".config");
 
 			// Checks whether the configuration file exists.
-			if (!File::Exists(configPath) && false)
+			if (!File::Exists(configPath))
 			{
-				// Creates a new instance of the ConfigView class.
-				ConfigView^ configView = gcnew ConfigView();
-				// Show application configuration view.
-				System::Windows::Forms::DialogResult cfgDialogResult = configView->ShowDialog(this);
+				String^ defaultDictionaryName = "pl-en";
+				String^ defaultDictionaryDescription = "S³ownik polsko-angielski";
+				String^ defaultDictionaryFileName = "pl-en.dict";
 
-				if (cfgDialogResult == System::Windows::Forms::DialogResult::OK) {
-					// TODO: Read and load application configuration.
-					MessageBox::Show("Configuration loaded! Not implemented");
+				String^ dataDirectory = Path::Combine(Path::GetDirectoryName(Application::ExecutablePath), "data");
+				if (!Directory::Exists(dataDirectory)) {
+					Directory::CreateDirectory(dataDirectory);
 				}
-				delete configView;
+
+				String^ defaultDictionaryFilePath = Path::Combine(dataDirectory, defaultDictionaryFileName);
+				auto dictionaryManager = gcnew DictionaryManager(defaultDictionaryName, defaultDictionaryDescription, defaultDictionaryFileName);
+				this->dictionaryData = dictionaryManager->GetDictionaryData();
+
+				auto configFileStream = File::Create(configPath);
+				auto config = gcnew AppConfiguration();
+				config->DatabaseFilePath = defaultDictionaryFilePath;
+				binaryFormatter->Serialize(configFileStream, config);
+				configFileStream->Close();
 			}
 			else
 			{
-				// TODO: Read and load application configuration.
-				// MessageBox::Show("Configuration loaded! Not implemented");
+				auto configFileStream = File::OpenRead(configPath);
+				configFileStream->Position = 0;
+				auto config = (AppConfiguration^)(binaryFormatter->Deserialize(configFileStream));
+				configFileStream->Close();
+				auto dictionaryManager = gcnew DictionaryManager(config->DatabaseFilePath);
+				this->dictionaryData = dictionaryManager->GetDictionaryData();
 			}
 		}
 	private: System::Windows::Forms::Panel^ mvPanel;

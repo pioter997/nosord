@@ -1,2 +1,3 @@
 #include "pch.h"
-#include "DatabaseManager.h"
+#include "DictionaryData.h"
+#include "DictionaryManager.h"

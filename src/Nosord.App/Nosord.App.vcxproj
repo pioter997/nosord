@@ -88,7 +88,8 @@
       <EntryPointSymbol>main</EntryPointSymbol>
     </Link>
     <PostBuildEvent>
-      <Command>copy app.config "$(TargetPath).config"</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -134,13 +135,14 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AppConfiguration.h" />
     <ClInclude Include="ConfigView.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="WordView.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="DatabaseManager.h" />
+    <ClInclude Include="DictionaryManager.h" />
     <ClInclude Include="DictionaryData.h" />
     <ClInclude Include="MainView.h">
       <FileType>CppForm</FileType>
@@ -150,6 +152,7 @@
     <ClInclude Include="Resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AppConfiguration.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="ConfigView.cpp" />
     <ClCompile Include="WordView.cpp" />
@@ -186,9 +189,6 @@
     <EmbeddedResource Include="WordView.resx">
       <DependentUpon>WordView.h</DependentUpon>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

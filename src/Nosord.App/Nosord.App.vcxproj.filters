@@ -35,13 +35,16 @@
     <ClInclude Include="PropertyImpl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DatabaseManager.h">
+    <ClInclude Include="DictionaryManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DictionaryData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="WordView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AppConfiguration.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -70,13 +73,13 @@
     <ClCompile Include="WordView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AppConfiguration.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico">
       <Filter>Resource Files</Filter>
     </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
   </ItemGroup>
 </Project>
