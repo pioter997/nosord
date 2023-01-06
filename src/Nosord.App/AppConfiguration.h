@@ -2,17 +2,17 @@
 
 namespace Nosord {
 
-	using namespace System;
+    using namespace System;
 
-	[Serializable]
-	ref class AppConfiguration
-	{
-	public:
-		String^ DatabaseFilePath;
+    [Serializable]
+    ref class AppConfiguration
+    {
+    public:
+        String^ DatabaseFilePath;
 
-		AppConfiguration()
-		{
-			
-		}
-	};
+        AppConfiguration()
+        {
+            
+        }
+    };
 }
