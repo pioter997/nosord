@@ -74,7 +74,7 @@ namespace Nosord {
 				}
 
 				String^ defaultDictionaryFilePath = Path::Combine(dataDirectory, defaultDictionaryFileName);
-				auto dictionaryManager = gcnew DictionaryManager(defaultDictionaryName, defaultDictionaryDescription, defaultDictionaryFileName);
+				auto dictionaryManager = gcnew DictionaryManager(defaultDictionaryName, defaultDictionaryDescription, defaultDictionaryFilePath);
 				this->dictionaryData = dictionaryManager->GetDictionaryData();
 
 				auto configFileStream = File::Create(configPath);
@@ -538,9 +538,24 @@ namespace Nosord {
 					this->dictionaryData->Items->Add(word, translation);
 					this->lbSearchResult->Items->Add(word);
 				}
-				auto prevIndex = this->lbSearchResult->SelectedIndex;
-				this->lbSearchResult->SelectedIndex = -1;
-				this->lbSearchResult->SelectedIndex = prevIndex;
+
+				// to refresh rtbTranslation control it is required to run 
+				// lbSearchResult_SelectedIndexChanged function
+				if (this->lbSearchResult->Items->Count == 1)
+				{
+					// if the list was empty and only one word was added then:
+					// change of the selected index to 0 is required
+					this->lbSearchResult->SelectedIndex = 0;
+				}
+				else
+				{
+					// if the list was not empty and had more than one word then:
+					// change of the selected index to -1 and resetting the previous value is required
+					auto prevIndex = this->lbSearchResult->SelectedIndex;
+					this->lbSearchResult->SelectedIndex = -1;
+					this->lbSearchResult->SelectedIndex = prevIndex;
+				}
+
 			}
 		}
 
