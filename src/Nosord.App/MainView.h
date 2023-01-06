@@ -28,11 +28,11 @@ namespace Nosord {
 
 			this->lbSearchResult->Items->Clear();
 
-			for (int i = 0; i < this->dictionaryData->Items->Count; i++)
-			{
-				String^ key = this->dictionaryData->Items->Keys[i];
-				this->lbSearchResult->Items->Add(key);
-			}
+			//for (int i = 0; i < this->dictionaryData->Items->Count; i++)
+			//{
+			//	String^ key = this->dictionaryData->Items->Keys[i];
+			//	this->lbSearchResult->Items->Add(key);
+			//}
 		}
 
 	protected:
@@ -77,7 +77,7 @@ namespace Nosord {
 
 				binaryFormatter->Serialize(dictFileStream, dictionaryData);
 				dictFileStream->Close();
-			} 
+			}
 			else
 			{
 				dictFileStream = File::OpenRead(dictionaryFileName);
@@ -131,13 +131,16 @@ namespace Nosord {
 	private: System::Windows::Forms::SplitContainer^ spMainView;
 	private: System::Windows::Forms::Panel^ searchPanel;
 	private: System::Windows::Forms::ListBox^ lbSearchResult;
-	private: System::Windows::Forms::TextBox^ txtTranslation;
+
 	private: System::Windows::Forms::TextBox^ txtSearch;
 	private: System::Windows::Forms::Button^ btnDelete;
-	private: System::Windows::Forms::Button^ btnSave;
+private: System::Windows::Forms::Button^ btnEdit;
+
 	private: System::Windows::Forms::Button^ btnAdd;
 
 	private: DictionaryData^ dictionaryData;
+	private: System::Windows::Forms::RichTextBox^ rtbTranslation;
+
 
 
 		   /// <summary>
@@ -155,9 +158,9 @@ namespace Nosord {
 			   this->mvPanel = (gcnew System::Windows::Forms::Panel());
 			   this->spMainView = (gcnew System::Windows::Forms::SplitContainer());
 			   this->lbSearchResult = (gcnew System::Windows::Forms::ListBox());
+			   this->rtbTranslation = (gcnew System::Windows::Forms::RichTextBox());
 			   this->btnDelete = (gcnew System::Windows::Forms::Button());
-			   this->btnSave = (gcnew System::Windows::Forms::Button());
-			   this->txtTranslation = (gcnew System::Windows::Forms::TextBox());
+			   this->btnEdit = (gcnew System::Windows::Forms::Button());
 			   this->searchPanel = (gcnew System::Windows::Forms::Panel());
 			   this->btnAdd = (gcnew System::Windows::Forms::Button());
 			   this->txtSearch = (gcnew System::Windows::Forms::TextBox());
@@ -206,9 +209,9 @@ namespace Nosord {
 			   // spMainView.Panel2
 			   // 
 			   this->spMainView->Panel2->BackColor = System::Drawing::SystemColors::Control;
+			   this->spMainView->Panel2->Controls->Add(this->rtbTranslation);
 			   this->spMainView->Panel2->Controls->Add(this->btnDelete);
-			   this->spMainView->Panel2->Controls->Add(this->btnSave);
-			   this->spMainView->Panel2->Controls->Add(this->txtTranslation);
+			   this->spMainView->Panel2->Controls->Add(this->btnEdit);
 			   this->spMainView->Size = System::Drawing::Size(736, 428);
 			   this->spMainView->SplitterDistance = 241;
 			   this->spMainView->SplitterWidth = 3;
@@ -230,10 +233,24 @@ namespace Nosord {
 			   this->lbSearchResult->TabIndex = 0;
 			   this->lbSearchResult->SelectedIndexChanged += gcnew System::EventHandler(this, &MainView::lbSearchResult_SelectedIndexChanged);
 			   // 
+			   // rtbTranslation
+			   // 
+			   this->rtbTranslation->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				   | System::Windows::Forms::AnchorStyles::Left)
+				   | System::Windows::Forms::AnchorStyles::Right));
+			   this->rtbTranslation->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(238)));
+			   this->rtbTranslation->Location = System::Drawing::Point(0, 5);
+			   this->rtbTranslation->Name = L"rtbTranslation";
+			   this->rtbTranslation->Size = System::Drawing::Size(485, 382);
+			   this->rtbTranslation->TabIndex = 3;
+			   this->rtbTranslation->Text = L"";
+			   // 
 			   // btnDelete
 			   // 
 			   this->btnDelete->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
-			   this->btnDelete->Location = System::Drawing::Point(367, 392);
+			   this->btnDelete->Enabled = false;
+			   this->btnDelete->Location = System::Drawing::Point(368, 392);
 			   this->btnDelete->Margin = System::Windows::Forms::Padding(2);
 			   this->btnDelete->Name = L"btnDelete";
 			   this->btnDelete->Size = System::Drawing::Size(56, 22);
@@ -241,30 +258,17 @@ namespace Nosord {
 			   this->btnDelete->Text = L"Usuñ";
 			   this->btnDelete->UseVisualStyleBackColor = true;
 			   // 
-			   // btnSave
+			   // btnEdit
 			   // 
-			   this->btnSave->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
-			   this->btnSave->Location = System::Drawing::Point(428, 392);
-			   this->btnSave->Margin = System::Windows::Forms::Padding(2);
-			   this->btnSave->Name = L"btnSave";
-			   this->btnSave->Size = System::Drawing::Size(56, 22);
-			   this->btnSave->TabIndex = 1;
-			   this->btnSave->Text = L"Zapisz";
-			   this->btnSave->UseVisualStyleBackColor = true;
-			   // 
-			   // txtTranslation
-			   // 
-			   this->txtTranslation->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-				   | System::Windows::Forms::AnchorStyles::Left)
-				   | System::Windows::Forms::AnchorStyles::Right));
-			   this->txtTranslation->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				   static_cast<System::Byte>(238)));
-			   this->txtTranslation->Location = System::Drawing::Point(2, 5);
-			   this->txtTranslation->Margin = System::Windows::Forms::Padding(2);
-			   this->txtTranslation->Multiline = true;
-			   this->txtTranslation->Name = L"txtTranslation";
-			   this->txtTranslation->Size = System::Drawing::Size(483, 383);
-			   this->txtTranslation->TabIndex = 0;
+			   this->btnEdit->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
+			   this->btnEdit->Enabled = false;
+			   this->btnEdit->Location = System::Drawing::Point(429, 392);
+			   this->btnEdit->Margin = System::Windows::Forms::Padding(2);
+			   this->btnEdit->Name = L"btnEdit";
+			   this->btnEdit->Size = System::Drawing::Size(56, 22);
+			   this->btnEdit->TabIndex = 1;
+			   this->btnEdit->Text = L"Edytuj";
+			   this->btnEdit->UseVisualStyleBackColor = true;
 			   // 
 			   // searchPanel
 			   // 
@@ -282,6 +286,7 @@ namespace Nosord {
 			   // 
 			   this->btnAdd->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			   this->btnAdd->BackColor = System::Drawing::SystemColors::Control;
+			   this->btnAdd->Enabled = false;
 			   this->btnAdd->Location = System::Drawing::Point(671, 11);
 			   this->btnAdd->Margin = System::Windows::Forms::Padding(2);
 			   this->btnAdd->Name = L"btnAdd";
@@ -289,6 +294,7 @@ namespace Nosord {
 			   this->btnAdd->TabIndex = 1;
 			   this->btnAdd->Text = L"Dodaj";
 			   this->btnAdd->UseVisualStyleBackColor = false;
+			   this->btnAdd->Click += gcnew System::EventHandler(this, &MainView::btnAdd_Click);
 			   // 
 			   // txtSearch
 			   // 
@@ -392,7 +398,6 @@ namespace Nosord {
 			   this->mvPanel->ResumeLayout(false);
 			   this->spMainView->Panel1->ResumeLayout(false);
 			   this->spMainView->Panel2->ResumeLayout(false);
-			   this->spMainView->Panel2->PerformLayout();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->spMainView))->EndInit();
 			   this->spMainView->ResumeLayout(false);
 			   this->searchPanel->ResumeLayout(false);
@@ -404,35 +409,88 @@ namespace Nosord {
 
 		   }
 #pragma endregion
-	private: System::Void miExit_Click(System::Object^ sender, System::EventArgs^ e) {
-		this->Close();
-	}
-	private: System::Void lbSearchResult_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) 
-	{
-		this->txtTranslation->Text = this->lbSearchResult->SelectedIndex.ToString();
-		if (this->lbSearchResult->SelectedIndex != -1)
+		private: System::Void miExit_Click(System::Object^ sender, System::EventArgs^ e) 
 		{
-			auto selectedWord = this->lbSearchResult->SelectedItem->ToString();
-			if (this->dictionaryData->Items->ContainsKey(selectedWord)) {
-				auto value = this->dictionaryData->Items[selectedWord];
-				this->txtTranslation->Text =
-					"<--- " + this->dictionaryData->Name + " --->" + System::Environment::NewLine +
-					"    " + selectedWord + System::Environment::NewLine +
-					"    " + value;
-			}
+			this->Close();
 		}
-	}
-	private: System::Void txtSearch_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-		String^ value = this->txtSearch->Text;
-		this->lbSearchResult->Items->Clear();
-		for (int i = 0; i < this->dictionaryData->Items->Count; i++)
+
+		private: System::Void lbSearchResult_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e)
 		{
-			String^ key = this->dictionaryData->Items->Keys[i];
-			if (key->Contains(value))
+			this->btnDelete->Enabled = false;
+			this->btnEdit->Enabled = false;
+
+			if (this->lbSearchResult->SelectedIndex != -1)
 			{
-				this->lbSearchResult->Items->Add(key);
+				auto selectedWord = this->lbSearchResult->SelectedItem->ToString();
+				if (this->dictionaryData->Items->ContainsKey(selectedWord)) {
+					auto value = this->dictionaryData->Items[selectedWord];
+					// https://www.c-sharpcorner.com/UploadFile/mahesh/richtextbox-in-C-Sharp/
+					// Cleans up the content of the translation
+					this->rtbTranslation->Clear();
+
+					// Display dictionary info
+					this->rtbTranslation->SelectionFont = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(238)));
+					this->rtbTranslation->SelectionColor = Color::DarkGreen;
+					this->rtbTranslation->SelectedText = "<--- " + this->dictionaryData->Description + " --->" + System::Environment::NewLine;
+
+					// Display selected word
+					this->rtbTranslation->SelectionFont = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(238)));
+					this->rtbTranslation->SelectionColor = Color::DarkBlue;
+					this->rtbTranslation->SelectedText = selectedWord + System::Environment::NewLine;
+
+					// Display translation
+					this->rtbTranslation->SelectionColor = Color::Black;
+					this->rtbTranslation->SelectionFont = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(238)));
+					this->rtbTranslation->SelectedText = "-----" + System::Environment::NewLine + value;
+
+					this->rtbTranslation->ReadOnly = true;
+
+					this->btnDelete->Enabled = true;
+					this->btnEdit->Enabled = true;
+				}
 			}
 		}
-	}
+
+		private: System::Void txtSearch_TextChanged(System::Object^ sender, System::EventArgs^ e) 
+		{
+			// Gets the search value
+			String^ value = this->txtSearch->Text;
+
+			// Clears the contents of the box list
+			this->lbSearchResult->Items->Clear();
+
+			// Disable delete and edit button
+			this->btnDelete->Enabled = false;
+			this->btnEdit->Enabled = false;
+
+			// Cleans up the content of the translation
+			this->rtbTranslation->Clear();
+
+			if (!String::IsNullOrEmpty(value))
+			{
+				for (int i = 0; i < this->dictionaryData->Items->Count; i++)
+				{
+					String^ key = this->dictionaryData->Items->Keys[i];
+					if (key->StartsWith(value))
+					{
+						this->lbSearchResult->Items->Add(key);
+					}
+				}
+				// Checks whether the specified word exists in the dictionary
+				auto valueExists = this->dictionaryData->Items->ContainsKey(value);
+				// If the word exists block the addition of a new word
+				this->btnAdd->Enabled = !valueExists;
+			}
+			else
+			{
+				// If the search box field is empty, block the addition of a new word
+				this->btnAdd->Enabled = false;
+			}
+		}
+
+		private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e)
+		{
+
+		}
 };
 }
