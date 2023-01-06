@@ -32,9 +32,6 @@
     <ClInclude Include="ConfigView.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PropertyImpl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="DictionaryManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>

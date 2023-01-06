@@ -60,14 +60,14 @@ namespace Nosord {
             dictionaryData->Description = dictionaryDescription;
 
             dictionaryData->Items->Add("dom", "home");
-            dictionaryData->Items->Add("wyjœcie", "exit");
+            dictionaryData->Items->Add("wyjscie", "exit");
             dictionaryData->Items->Add("koniec", "end");
             dictionaryData->Items->Add("kot", "cat");
             dictionaryData->Items->Add("pies", "dog");
 
             for (int i = 0; i < 20; i++)
             {
-                dictionaryData->Items->Add("wyraz_" + i, "tlumaczenie_" + i);
+                dictionaryData->Items->Add("word_" + i, "translation_" + i);
             }
 
             auto binaryFormatter = gcnew BinaryFormatter();
