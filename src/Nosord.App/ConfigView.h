@@ -96,6 +96,7 @@ namespace Nosord {
 			// 
 			// btnCancel
 			// 
+			this->btnCancel->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
 			this->btnCancel->DialogResult = System::Windows::Forms::DialogResult::Cancel;
 			this->btnCancel->Location = System::Drawing::Point(605, 14);
 			this->btnCancel->Margin = System::Windows::Forms::Padding(5);
@@ -107,6 +108,7 @@ namespace Nosord {
 			// 
 			// btnSave
 			// 
+			this->btnSave->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
 			this->btnSave->Location = System::Drawing::Point(690, 14);
 			this->btnSave->Margin = System::Windows::Forms::Padding(5);
 			this->btnSave->Name = L"btnSave";
@@ -144,6 +146,8 @@ namespace Nosord {
 			// 
 			// gbDatabase
 			// 
+			this->gbDatabase->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
 			this->gbDatabase->Controls->Add(this->btnBrowse);
 			this->gbDatabase->Controls->Add(this->lblDatabaseFile);
 			this->gbDatabase->Controls->Add(this->txtDatabase);
@@ -158,6 +162,7 @@ namespace Nosord {
 			// 
 			// btnBrowse
 			// 
+			this->btnBrowse->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->btnBrowse->Location = System::Drawing::Point(612, 37);
 			this->btnBrowse->Margin = System::Windows::Forms::Padding(4);
 			this->btnBrowse->Name = L"btnBrowse";
@@ -179,6 +184,8 @@ namespace Nosord {
 			// 
 			// txtDatabase
 			// 
+			this->txtDatabase->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
 			this->txtDatabase->Location = System::Drawing::Point(8, 39);
 			this->txtDatabase->Margin = System::Windows::Forms::Padding(4);
 			this->txtDatabase->Name = L"txtDatabase";
@@ -191,7 +198,7 @@ namespace Nosord {
 			this->tabPageOther->Margin = System::Windows::Forms::Padding(4);
 			this->tabPageOther->Name = L"tabPageOther";
 			this->tabPageOther->Padding = System::Windows::Forms::Padding(4);
-			this->tabPageOther->Size = System::Drawing::Size(744, 324);
+			this->tabPageOther->Size = System::Drawing::Size(744, 336);
 			this->tabPageOther->TabIndex = 1;
 			this->tabPageOther->Text = L"Inne";
 			this->tabPageOther->UseVisualStyleBackColor = true;
@@ -212,7 +219,7 @@ namespace Nosord {
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedToolWindow;
 			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"ConfigView";
-			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Text = L"Konfiguracja";
 			this->pButtons->ResumeLayout(false);
 			this->tabControl->ResumeLayout(false);
