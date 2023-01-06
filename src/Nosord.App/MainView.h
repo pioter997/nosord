@@ -497,6 +497,7 @@ private: System::Windows::Forms::Button^ btnEdit;
 			String^ value = this->txtSearch->Text;
 			auto view = gcnew WordView(value, "");
 			OpenWordDialog(view);
+			delete view;
 		}
 
 		private: System::Void btnEdit_Click(System::Object^ sender, System::EventArgs^ e) 
@@ -511,6 +512,7 @@ private: System::Windows::Forms::Button^ btnEdit;
 
 					auto view = gcnew WordView(selectedWord, value);
 					OpenWordDialog(view);
+					delete view;
 				}
 			}
 		}
@@ -519,9 +521,22 @@ private: System::Windows::Forms::Button^ btnEdit;
 		{
 			auto dialogResult = view->ShowDialog(this);
 			if (dialogResult == Windows::Forms::DialogResult::OK) {
-				MessageBox::Show("Not implemented");
+				String^ translation = view->GetTranslation();
+				String^ word = view->GetWord();
+				if (this->dictionaryData->Items->ContainsKey(word))
+				{
+					this->dictionaryData->Items[word] = translation;
+				}
+				else
+				{
+					this->dictionaryData->Items->Add(word, translation);
+					this->lbSearchResult->Items->Add(word);
+				}
+
+				auto prevIndex = this->lbSearchResult->SelectedIndex;
+				this->lbSearchResult->SelectedIndex = -1;
+				this->lbSearchResult->SelectedIndex = prevIndex;
 			}
-			delete view;
 		}
 };
 }

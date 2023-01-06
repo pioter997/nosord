@@ -27,6 +27,15 @@ namespace Nosord {
 			this->rtbTranslation->Select();
 		}
 
+		String^ GetWord()
+		{
+			return this->txtWord->Text;
+		}
+
+		String^ GetTranslation()
+		{
+			return this->rtbTranslation->Text;
+		}
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
