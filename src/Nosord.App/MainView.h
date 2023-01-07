@@ -1,6 +1,7 @@
 #pragma once
 #include "ConfigView.h"
 #include "WordView.h"
+#include "AboutView.h"
 #include "DictionaryData.h"
 #include "DictionaryManager.h"
 #include "AppConfiguration.h"
@@ -352,6 +353,7 @@ namespace Nosord {
                this->miAbout->Name = L"miAbout";
                this->miAbout->Size = System::Drawing::Size(129, 22);
                this->miAbout->Text = L"O aplikacji";
+               this->miAbout->Click += gcnew System::EventHandler(this, &MainView::miAbout_Click);
                // 
                // miHelp
                // 
@@ -594,6 +596,16 @@ namespace Nosord {
             {
                 MessageBox::Show("Not implemented");
             }
+            delete view;
+        }
+        
+        /// <summary>
+        /// Opens the about dialog.
+        /// </summary>
+        private: System::Void miAbout_Click(System::Object^ sender, System::EventArgs^ e)
+        {
+            auto view = gcnew AboutView();
+            view->ShowDialog(this);
             delete view;
         }
     };

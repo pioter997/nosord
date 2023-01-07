@@ -136,6 +136,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppConfiguration.h" />
+    <ClInclude Include="AboutView.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="ConfigView.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -178,6 +181,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AboutView.resx">
+      <DependentUpon>AboutView.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ConfigView.resx">
       <DependentUpon>ConfigView.h</DependentUpon>
     </EmbeddedResource>
