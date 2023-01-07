@@ -22,7 +22,7 @@ namespace Nosord {
         AboutView()
         {
             InitializeComponent();
-
+            // https://patorjk.com/software/taag/#p=display&f=Georgi16&t=NOSORD
             String^ aboutText =
                 L"___      ___   ____      ____      ____   ________   ________\r\n" +
                 L"`MM\\     `M'  6MMMMb    6MMMMb\\   6MMMMb  `MMMMMMMb. `MMMMMMMb.\r\n" +
