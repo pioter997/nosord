@@ -31,10 +31,18 @@ namespace Nosord {
             else
             {
                 auto binaryFormatter = gcnew BinaryFormatter();
-                auto fileStream = File::OpenRead(dictionaryFilePath);
-                fileStream->Position = 0;
-                dictionaryData = (DictionaryData^)(binaryFormatter->Deserialize(fileStream));
-                fileStream->Close();
+                FileStream^ fileStream;
+                
+                try
+                {
+                    fileStream = File::OpenRead(dictionaryFilePath);
+                    fileStream->Position = 0;
+                    dictionaryData = (DictionaryData^)(binaryFormatter->Deserialize(fileStream));
+                }
+                finally
+                {
+                    fileStream->Close();
+                }
             }
 
             return dictionaryData;
@@ -43,9 +51,16 @@ namespace Nosord {
         System::Void SaveDictionaryData(DictionaryData^ dictionaryData)
         {
             auto binaryFormatter = gcnew BinaryFormatter();
-            auto fileStream = File::Create(dictionaryFilePath);
-            binaryFormatter->Serialize(fileStream, dictionaryData);
-            fileStream->Close();
+            FileStream^ fileStream;
+            try
+            {
+                fileStream = File::Create(dictionaryFilePath);
+                binaryFormatter->Serialize(fileStream, dictionaryData);
+            }
+            finally
+            {
+                fileStream->Close();
+            }
         }
     private:
         String^ dictionaryName;
@@ -59,22 +74,29 @@ namespace Nosord {
             dictionaryData->Name = dictionaryName;
             dictionaryData->Description = dictionaryDescription;
 
-            dictionaryData->Items->Add("dom", "home");
-            dictionaryData->Items->Add("wyjscie", "exit");
-            dictionaryData->Items->Add("koniec", "end");
-            dictionaryData->Items->Add("kot", "cat");
-            dictionaryData->Items->Add("pies", "dog");
+            //dictionaryData->Items->Add("dom", "home");
+            //dictionaryData->Items->Add("wyjscie", "exit");
+            //dictionaryData->Items->Add("koniec", "end");
+            //dictionaryData->Items->Add("kot", "cat");
+            //dictionaryData->Items->Add("pies", "dog");
 
-            for (int i = 0; i < 20; i++)
-            {
-                dictionaryData->Items->Add("word_" + i, "translation_" + i);
-            }
+            //for (int i = 0; i < 20; i++)
+            //{
+            //    dictionaryData->Items->Add("word_" + i, "translation_" + i);
+            //}
 
             auto binaryFormatter = gcnew BinaryFormatter();
-            auto fileStream = File::Create(dictionaryFilePath);
-            binaryFormatter->Serialize(fileStream, dictionaryData);
-            fileStream->Close();
-
+            FileStream^ fileStream ;
+            try
+            {
+                fileStream = File::Create(dictionaryFilePath);
+                binaryFormatter->Serialize(fileStream, dictionaryData);
+            }
+            finally
+            {
+                fileStream->Close();
+            }
+            
             return dictionaryData;
         }
     };

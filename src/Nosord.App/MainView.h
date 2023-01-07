@@ -47,6 +47,7 @@ namespace Nosord {
         AppConfiguration^ appConfiguration;
         DictionaryManager^ dictionaryManager;
         DictionaryData^ dictionaryData;
+        String^ configPath;
     
         /// <summary>
         /// Loads the application configuration.
@@ -62,12 +63,12 @@ namespace Nosord {
             String^ applicationDirectoryName = Path::GetDirectoryName(Application::ExecutablePath);
 
             // The configuration file path
-            String^ configPath = Path::Combine(applicationDirectoryName, applicationName + ".config");
+            this->configPath = Path::Combine(applicationDirectoryName, applicationName + ".config");
 
             // Checks whether the configuration file exists.
-            if (!File::Exists(configPath))
+            if (!File::Exists(this->configPath))
             {
-                String^ defaultDictionaryName = "pl-en";
+                String^ defaultDictionaryName = "PL-EN";
                 String^ defaultDictionaryDescription = "S³ownik polsko-angielski";
                 String^ defaultDictionaryFileName = "pl-en.dict";
 
@@ -80,21 +81,37 @@ namespace Nosord {
                 dictionaryManager = gcnew DictionaryManager(defaultDictionaryName, defaultDictionaryDescription, defaultDictionaryFilePath);
                 this->dictionaryData = dictionaryManager->GetDictionaryData();
 
-                auto configFileStream = File::Create(configPath);
-                appConfiguration = gcnew AppConfiguration();
-                appConfiguration->DatabaseFilePath = defaultDictionaryFilePath;
-                binaryFormatter->Serialize(configFileStream, appConfiguration);
-                configFileStream->Close();
+                FileStream^ configFileStream;
+                try
+                {
+                    configFileStream = File::Create(this->configPath);
+                    appConfiguration = gcnew AppConfiguration();
+                    appConfiguration->DatabaseFilePath = defaultDictionaryFilePath;
+                    binaryFormatter->Serialize(configFileStream, appConfiguration);
+                }
+                finally
+                {
+                    configFileStream->Close();
+                }
             }
             else
             {
-                auto configFileStream = File::OpenRead(configPath);
-                configFileStream->Position = 0;
-                appConfiguration = (AppConfiguration^)(binaryFormatter->Deserialize(configFileStream));
-                configFileStream->Close();
+                FileStream^ configFileStream;
+                try
+                {
+                    configFileStream = File::OpenRead(this->configPath);
+                    configFileStream->Position = 0;
+                    appConfiguration = (AppConfiguration^)(binaryFormatter->Deserialize(configFileStream));
+                }
+                finally
+                {
+                    configFileStream->Close();
+                }
                 dictionaryManager = gcnew DictionaryManager(appConfiguration->DatabaseFilePath);
                 this->dictionaryData = dictionaryManager->GetDictionaryData();
             }
+
+            this->Text = "S³ownik " + this->dictionaryData->Name;
         }
     private: System::Windows::Forms::Panel^ mvPanel;
     private: System::Windows::Forms::MenuStrip^ mMenu;
@@ -594,7 +611,36 @@ namespace Nosord {
             auto dialogResult = view->ShowDialog(this);
             if (dialogResult == Windows::Forms::DialogResult::OK)
             {
-                MessageBox::Show("Not implemented");
+                // Get updated app configuration object from ConfigView object.
+                this->appConfiguration = view->GetAppConfiguration();
+
+                // Overwrite current application configuration file
+                FileStream^ configFileStream;
+                try
+                {
+                    configFileStream = File::Create(this->configPath);
+                    auto binaryFormatter = gcnew BinaryFormatter();
+                    binaryFormatter->Serialize(configFileStream, this->appConfiguration);
+                    dictionaryManager = gcnew DictionaryManager(this->appConfiguration->DatabaseFilePath);
+                }
+                finally
+                {
+                    configFileStream->Close();
+                }
+                
+                // Get updated dictionaryData object from ConfigView object.
+                this->dictionaryData = view->GetDictionaryData();
+                this->Text = "S³ownik " + this->dictionaryData->Name;
+
+                // Clear all inputs
+                this->txtSearch->Text = "";
+                this->lbSearchResult->Items->Clear();
+                this->rtbTranslation->Clear();
+
+                // Disable all buttons delete and edit button
+                this->btnDelete->Enabled = false;
+                this->btnEdit->Enabled = false;
+                this->btnAdd->Enabled = false;
             }
             delete view;
         }
