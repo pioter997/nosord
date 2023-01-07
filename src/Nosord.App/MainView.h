@@ -123,7 +123,6 @@ namespace Nosord {
     private: System::Windows::Forms::ToolStripMenuItem^ miExit;
     private: System::Windows::Forms::ToolStripMenuItem^ miConfig;
     private: System::Windows::Forms::ToolStripMenuItem^ miAbout;
-    private: System::Windows::Forms::ToolStripMenuItem^ miHelp;
     private: System::Windows::Forms::SplitContainer^ spMainView;
     private: System::Windows::Forms::Panel^ searchPanel;
     private: System::Windows::Forms::ListBox^ lbSearchResult;
@@ -163,7 +162,6 @@ namespace Nosord {
                this->miConfig = (gcnew System::Windows::Forms::ToolStripMenuItem());
                this->mHelp = (gcnew System::Windows::Forms::ToolStripMenuItem());
                this->miAbout = (gcnew System::Windows::Forms::ToolStripMenuItem());
-               this->miHelp = (gcnew System::Windows::Forms::ToolStripMenuItem());
                this->mvPanel->SuspendLayout();
                (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->spMainView))->BeginInit();
                this->spMainView->Panel1->SuspendLayout();
@@ -360,7 +358,7 @@ namespace Nosord {
                // 
                // mHelp
                // 
-               this->mHelp->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) { this->miAbout, this->miHelp });
+               this->mHelp->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->miAbout });
                this->mHelp->Name = L"mHelp";
                this->mHelp->Size = System::Drawing::Size(57, 20);
                this->mHelp->Text = L"Pomoc";
@@ -371,12 +369,6 @@ namespace Nosord {
                this->miAbout->Size = System::Drawing::Size(129, 22);
                this->miAbout->Text = L"O aplikacji";
                this->miAbout->Click += gcnew System::EventHandler(this, &MainView::miAbout_Click);
-               // 
-               // miHelp
-               // 
-               this->miHelp->Name = L"miHelp";
-               this->miHelp->Size = System::Drawing::Size(162, 26);
-               this->miHelp->Text = L"Pomoc";
                // 
                // MainView
                // 
