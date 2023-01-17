@@ -69,6 +69,7 @@ namespace Nosord {
         
         DictionaryData^ GenerateDictionaryData()
         {
+            // The auto keyword in C++ automatically detects and assigns a data type to the variable with which it is used
             auto dictionaryData = gcnew DictionaryData();
 
             dictionaryData->Name = dictionaryName;
@@ -84,16 +85,22 @@ namespace Nosord {
             //{
             //    dictionaryData->Items->Add("word_" + i, "translation_" + i);
             //}
-
+            
+            // Binaryformatter is used to serialize distionary data object 
             auto binaryFormatter = gcnew BinaryFormatter();
             FileStream^ fileStream ;
+
             try
             {
+                // Creates or overwrites a file in the specified path
                 fileStream = File::Create(dictionaryFilePath);
+
+                // Serializes an object, or graph of connected objects, to the given stream
                 binaryFormatter->Serialize(fileStream, dictionaryData);
             }
             finally
             {
+                //Closes the current stream and releases any resources
                 fileStream->Close();
             }
             
