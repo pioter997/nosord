@@ -39,7 +39,7 @@ namespace Nosord {
         /// <summary>
         /// Returns the word to be translated.
         /// </summary>
-        String^ GetWord()
+        String^ GetWord(void)
         {
             return this->txtWord->Text;
         }
@@ -47,7 +47,7 @@ namespace Nosord {
         /// <summary>
         /// Returns a translation of the word.
         /// </summary>
-        String^ GetTranslation()
+        String^ GetTranslation(void)
         {
             return this->rtbTranslation->Text;
         }
@@ -128,7 +128,6 @@ namespace Nosord {
             this->btnSave->TabIndex = 2;
             this->btnSave->Text = L"Zapisz";
             this->btnSave->UseVisualStyleBackColor = true;
-            this->btnSave->Click += gcnew System::EventHandler(this, &WordView::btnSave_Click);
             // 
             // txtWord
             // 
@@ -176,12 +175,5 @@ namespace Nosord {
 
         }
 #pragma endregion
-
-        /// <summary>
-        /// Zapis pliku konfiguracyjnego s³ownika
-        /// </summary>
-        private: System::Void btnSave_Click(System::Object^ sender, System::EventArgs^ e) {
-            
-        }
 };
 }
