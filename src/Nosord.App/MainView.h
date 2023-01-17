@@ -25,6 +25,10 @@ namespace Nosord {
     public ref class MainView : public System::Windows::Forms::Form
     {
     public:
+        /// <summary>
+        /// constuctor of the object
+        /// </summary>
+        /// <param name=""></param>
         MainView(void)
         {
             InitializeComponent();
@@ -33,7 +37,7 @@ namespace Nosord {
 
     protected:
         /// <summary>
-        /// Clean up any resources being used.
+        /// Clean up any resources being used//destructor
         /// </summary>
         ~MainView()
         {
@@ -44,8 +48,21 @@ namespace Nosord {
         }
 
     private:
+        /// <summary>
+        /// Local variables accesible only inside the class
+        /// </summary>
+     
+        /// <summary>
+        /// App configuration local variable
+        /// </summary>
         AppConfiguration^ appConfiguration;
+        /// <summary>
+        /// Dictionary manager responsible for saving and loading dictionary from the disk
+        /// </summary>
         DictionaryManager^ dictionaryManager;
+        /// <summary>
+        /// Dictionary data object that contains all translations for specified dictionary 
+        /// </summary>
         DictionaryData^ dictionaryData;
         String^ configPath;
     
@@ -72,13 +89,19 @@ namespace Nosord {
                 String^ defaultDictionaryDescription = "S³ownik polsko-angielski";
                 String^ defaultDictionaryFileName = "pl-en.dict";
 
+                // gets the path to the directory data
                 String^ dataDirectory = Path::Combine(Path::GetDirectoryName(Application::ExecutablePath), "data");
+                // if data dictionary does not exist  
                 if (!Directory::Exists(dataDirectory)) {
+                    // creates dictionary data directory
                     Directory::CreateDirectory(dataDirectory);
                 }
 
+                //gets the path to the default dictionary file
                 String^ defaultDictionaryFilePath = Path::Combine(dataDirectory, defaultDictionaryFileName);
+                //initialize the dictionary manager local variable
                 dictionaryManager = gcnew DictionaryManager(defaultDictionaryName, defaultDictionaryDescription, defaultDictionaryFilePath);
+                //the dictionary object is created 
                 this->dictionaryData = dictionaryManager->GetDictionaryData();
 
                 FileStream^ configFileStream;
