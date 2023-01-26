@@ -1,1 +1,532 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="721px" height="434px" viewBox="-0.5 -0.5 721 434" content="&lt;mxfile&gt;&lt;diagram id=&quot;ZOe3e9Nt5xJ0zLPup9kG&quot; name=&quot;Page-1&quot;&gt;7Vpdb6M4FP01SJ2HWQEOLfOYkMzuSq222qxmHkcuOOCpwcg4X/31e41NEgK0tCUzIw1SpMbX18a+59zLsRsLBenuT4Hz5I5HhFmuHe0sNLdc1/H8G/ijLHtt+eTY2hALGhmno2FJn4gxVm5rGpGi5ig5Z5LmdWPIs4yEsmbDQvBt3W3FWf2pOY5Jw7AMMWtav9JIJtrqe/bR/hehcVI92bFNT4orZ2MoEhzx7YkJLSwUCM6l/pbuAsJU8Kq46HGfO3oPCxMkk70GTPSIDWZrs7nPXKRmcXJf7bjY0pThDFqzFc/k0vQ40MaMxhl8D+GRRIBhQ4SkEKyp6ZA8B2uYUBbd4j1fq4UVEoePVWuWcEGfYFrMzJzQLaTB3b2ueSzVSDDbYBWkAJ/7arfOmekO72qOt7iQxhByxnBe0IfDNlIsYprNuJQ8NU4mNLAdsuuMr3NADehOeEqk2IOLGeD6BmjD9Ilpbo+0ca6NLalRxgCDDVXjw9RHNOGLAbQDXK8BruXOFOEpUYyfqrzZ58SCELvI0Vt+U/8ZWyBeskRR8EcScMaBFvOMa/pQxs5MFYMYWclO/hQ5DmkW35Y+88nR8q+JmjJxGLtiZUIlNIpIprDnEkusgVZbyDnNZBlVbwYfCH5g/+FZHiw8gLZzbMNHuQsZ8Az2gmmJOQEWbYliUk+CTNoZYhihYtuHEd4QhLhuIcQZdoyWmGjsqurmvAm4FCBg5IjUfwrI+UengSZqoolakGP4gbB7XlBJuZpfaN8zRH8EaH7PNPYHwOymI4kDxgty9UGn4YaD/5iG70DU74dola7vgRRNGlCRCASGaRo4EplWr0Ptrnyefw3BlHwtQuNVJTe8S2PyQhQEYVjSTX3+9+yxevgJbe8AuS+UbEdxMZC4mNS1hWs3q9LBp8bhG3sAgFFHXcJ5Dom6ovFaYF2op1bgWlN7et7hLRrKIqKh6sJif4czkNFCl7d5w/zs2DlUmvOBpa1lVFgu6b4U5mrEUgqoZqXnWE67manz+zWqppWKjj2ArHGbh5hR1rwFNQf1rCAD6Bq363Byy3Fk6oQs68SVEjc1nVNL4bK2/J1B9AC3J0jMNAcYM/nCMDiM08WOym8Bo+Hj1T8P39VNgUp7WLq92MAMUxEXYDmdo3zYWBnexbGm0movDcgdQGo1K8FFpJb/M6WW38gknT9abJ2wftRdg+gu5L4svNqPgwMcHtxPHXVzvJR5TZHyXytfLncatEf1MghontszCwfAzOlIQpgp4dGVSsAPYy4OAut1z+I6RC5OmtruEnIBeT9RLqCm8F5EVI43MwMqBK+HQrjc1Qxqu+Yfr2Z+l3qqE/zXuJpBbf+9GMXN61H7kVczqHmgHK9mfoPKcNGrGWgef9ZS9p38OAgt/gc=&lt;/diagram&gt;&lt;/mxfile&gt;"><defs><clipPath id="mx-clip-244-31-152-54-0"><rect x="244" y="31" width="152" height="54"/></clipPath><clipPath id="mx-clip-244-93-152-26-0"><rect x="244" y="93" width="152" height="26"/></clipPath><clipPath id="mx-clip-4-191-232-104-0"><rect x="4" y="191" width="232" height="104"/></clipPath><clipPath id="mx-clip-4-303-232-132-0"><rect x="4" y="303" width="232" height="132"/></clipPath><clipPath id="mx-clip-284-191-152-26-0"><rect x="284" y="191" width="152" height="26"/></clipPath><clipPath id="mx-clip-284-225-152-26-0"><rect x="284" y="225" width="152" height="26"/></clipPath><clipPath id="mx-clip-484-191-232-104-0"><rect x="484" y="191" width="232" height="104"/></clipPath><clipPath id="mx-clip-484-303-232-132-0"><rect x="484" y="303" width="232" height="132"/></clipPath></defs><g><path d="M 240 26 L 240 0 L 400 0 L 400 26" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"/><path d="M 240 26 L 240 114 L 400 114 L 400 26" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/><path d="M 240 26 L 400 26" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/><g fill="rgb(0, 0, 0)" font-family="Helvetica" font-weight="bold" pointer-events="none" text-anchor="middle" font-size="12px"><text x="319.5" y="17.5">Form</text></g><g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-244-31-152-54-0)" font-size="12px"><text x="245.5" y="43.5">+ field: type</text><text x="245.5" y="57.5">+ field: type</text><text x="245.5" y="71.5">+ field: type</text></g><path d="M 240 84 L 400 84" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/><g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-244-93-152-26-0)" font-size="12px"><text x="245.5" y="105.5">+ Close(): void</text></g><path d="M 233.45 160 L 268 118.88" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/><path d="M 271.38 114.86 L 269.56 122.47 L 268 118.88 L 264.2 117.96 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/><path d="M 0 186 L 0 160 L 240 160 L 240 186" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/><path d="M 0 186 L 0 430 L 240 430 L 240 186" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/><path d="M 0 186 L 240 186" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/><g fill="rgb(0, 0, 0)" font-family="Helvetica" font-weight="bold" pointer-events="none" text-anchor="middle" font-size="12px"><text x="119.5" y="177.5">MainView</text></g><g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-4-191-232-104-0)" font-size="12px"><text x="5.5" y="203.5">+ appConfiguration: AppConfiguration^</text><text x="5.5" y="217.5">+ dictionaryManager: DictionaryManager^</text><text x="5.5" y="231.5">+ dictionaryData: DictionaryData^</text><text x="5.5" y="245.5">+ configPath: String^</text></g><path d="M 0 294 L 240 294" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/><g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-4-303-232-132-0)" font-size="12px"><text x="5.5" y="315.5">+ LoadConfigutation(void): void</text><text x="5.5" y="329.5">+ InitializeComponent(void): void</text><text x="5.5" y="343.5">+ miExit_Click(Object^, EventArgs^): void </text></g><path d="M 348.22 160 L 337.3 120.14" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/><path d="M 335.91 115.08 L 341.14 120.9 L 337.3 120.14 L 334.39 122.75 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/><path d="M 280 186 L 280 160 L 440 160 L 440 186" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/><path d="M 280 186 L 280 246 L 440 246 L 440 186" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/><path d="M 280 186 L 440 186" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/><g fill="rgb(0, 0, 0)" font-family="Helvetica" font-weight="bold" pointer-events="none" text-anchor="middle" font-size="12px"><text x="359.5" y="177.5">ConfigView</text></g><g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-284-191-152-26-0)" font-size="12px"><text x="285.5" y="203.5">+ field: type</text></g><path d="M 280 216 L 440 216" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/><g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-284-225-152-26-0)" font-size="12px"><text x="285.5" y="237.5">+ method(type): type</text></g><path d="M 480 193 L 391.91 118.12" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/><path d="M 387.91 114.72 L 395.51 116.59 L 391.91 118.12 L 390.98 121.92 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/><path d="M 480 186 L 480 160 L 720 160 L 720 186" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/><path d="M 480 186 L 480 430 L 720 430 L 720 186" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/><path d="M 480 186 L 720 186" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/><g fill="rgb(0, 0, 0)" font-family="Helvetica" font-weight="bold" pointer-events="none" text-anchor="middle" font-size="12px"><text x="599.5" y="177.5">EditView</text></g><g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-484-191-232-104-0)" font-size="12px"><text x="485.5" y="203.5">+ appConfiguration: AppConfiguration^</text><text x="485.5" y="217.5">+ dictionaryManager: DictionaryManager^</text><text x="485.5" y="231.5">+ dictionaryData: DictionaryData^</text><text x="485.5" y="245.5">+ configPath: String^</text></g><path d="M 480 294 L 720 294" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/><g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-484-303-232-132-0)" font-size="12px"><text x="485.5" y="315.5">+ LoadConfigutation(void): void</text><text x="485.5" y="329.5">+ InitializeComponent(void): void</text><text x="485.5" y="343.5">+ miExit_Click(Object^, EventArgs^): void </text></g></g></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   inkscape:export-ydpi="600.04358"
+   inkscape:export-xdpi="600.04358"
+   inkscape:export-filename="C:\Dev\Projects\Cpp\nosord\src\Nosord.App\diagram.png"
+   sodipodi:docname="diagram.svg"
+   id="svg172"
+   content="&lt;mxfile&gt;&lt;diagram id=&quot;ZOe3e9Nt5xJ0zLPup9kG&quot; name=&quot;Page-1&quot;&gt;7Vpbb+soEP41kXoedhXbSTd9zO10j9SqVVOd81gRm9psMViY3Pqwv30HG5LYJpfGbnW0shQp9jAMMPMxfEPS8cbx+lagJLrnAaYdtxusO96k47qOe9OFLyXZ5JIbRwtCQQKttBPMyDvWQqO2IAFOC4qScypJUhT6nDHsy4IMCcFXRbVXToujJijEFcHMR7Qq/UUCGeXSQb+7k/+NSRiZkZ2ubomRUdaCNEIBX+2JvGnHGwvOZf4Ur8eYKucZv+T9vh9o3U5MYCbP6tDLeywRXejFfeci1pOTG7PidEViihi8jV45kzPd4sA7oiRk8OzDkFiAYImFJOCsoW6QPAGpHxEa3KENX6iJpRL5b+ZtFHFB3sEsotomNAup4+5eFzRmqieIuyAVOAWdR7NapyS6R+uC4h1KpRb4nFKUpGS+XUaMREjYiEvJY61Udab2r1ohXu+JtHNvMY+xFBtQ0a2eibxGuon7agcb16hE+5AxQqShGm5Nb0d7AmgjFsIKdsN5xeG86nDXltHAxYXBEIVIMiTxiC9YkO4jCB721rkTZbg6gLF+BWMdF5zbfcZrmMAQnmZSEBZ2+tOOmorn5N5XOg8rpkCllDJgKpUSNmVmBjAj+Bsec8pBf8J4DlZCaUlk8ErxqzyI1jRBPszoLtOZ9HaSJ+01JeLQ95Vm2zciQYCZQhqXSKIcVmoVCSdMZm7tj+ADzh93/+x3+jDxMbw7u3f4KHUhx5zBWhDJQIcBsyuscGuDY+9sPG6KkT6FP693GH4FKByL+7Ul7qXYUZLFJI+dyaXORYGLIQQU7yL1rAI5+cOpRNOrRtOzRI6iOaaPPCWScGVf5LqliH5F0K7PTBqDBmL214G9OqY8xVff8p245KDfbsMaER2cuQ3d+iE1W3kvVDgAOqNfdTgiGZvD9+Cxl/KF8LUJs5fhoA5xyQ/K/FEvCEyRJMsim6qzRjObPdjeQ+R+ErxqqUxDVMYtURnPQi68gQ3El3GZbdozR5eFO918OZlxvQMJEiUJZIxXEi4Eyk+MYWfsdobdYbnBwnIC4qsmJDb3iEH1oBnPpCI+2ncCKa/cMZNZevnZlB6zeqTEwNq8bpDknr1HDtMr65a4boBeudXSraVXlwTt5sw81gC9cg+VQua0ulLU6ltlt/67ba+23XEU6AQjswSjbewxtVKPHwycDuF+h+0cJxB9Jk/2icl0TeTLmBL/7eph/o+6VlHJApbcnS7BwlCEKUiO2aDzGUbCj55wuqDyZYYpWMHBDxbg9TiC9I+DS03Ltcxtv6iisqaxuWTDIKi3VrAxDeo67CHB7BcXwQSixcMr9ZhRmpNDT8C1EtcbPCY5qupaGc6BGX3MSHZutgdRnZxWLTCsOc3tNlFhVA+eJiqMwW9VYQwqmTvfHnmNsYf6ttxopNxw3BL9dyy3ILbLTMe5qNxw+sXxtu974zm2Gv2T642bz603jtYMbQI2MR6cDd8jF602tDZx0WoK8bYSqBk020WrLWgNVAKeY4mZZm8ztKzF3bI0AHZG6pfOj1pq9/zl8LHc6trg02uAc/Wq/LgBzuX1fyfO5VWr5W0J1NKsZmhWzynRnt65NGtwEc3qDU7TrK+/1fVsP1W2t7r/y7y+zSqNc7kmbnU92w+wLZf7eNAst7qfxuWqdwP5djSn1cnb1a2i3rBQ+xqiti85Qfkuude9xfJZIJbSytVxcSrVbmrOh/XbdHM5cs+kkYOP00h43f23MD8nd//Q9Kb/AQ==&lt;/diagram&gt;&lt;/mxfile&gt;"
+   viewBox="-0.5 -0.5 551 614"
+   height="614px"
+   width="551px"
+   version="1.1">
+  <metadata
+     id="metadata176">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     inkscape:current-layer="svg172"
+     inkscape:window-maximized="0"
+     inkscape:window-y="-32000"
+     inkscape:window-x="-32000"
+     inkscape:cy="307"
+     inkscape:cx="275.5"
+     inkscape:zoom="1.3355049"
+     showgrid="false"
+     id="namedview174"
+     inkscape:window-height="1711"
+     inkscape:window-width="3200"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff" />
+  <defs
+     id="defs26">
+    <clipPath
+       id="mx-clip-184-31-192-34-0">
+      <rect
+         id="rect2"
+         height="34"
+         width="192"
+         y="31"
+         x="184" />
+    </clipPath>
+    <clipPath
+       id="mx-clip-184-73-192-32-0">
+      <rect
+         id="rect5"
+         height="32"
+         width="192"
+         y="73"
+         x="184" />
+    </clipPath>
+    <clipPath
+       id="mx-clip-84-341-372-64-0">
+      <rect
+         id="rect8"
+         height="64"
+         width="372"
+         y="341"
+         x="84" />
+    </clipPath>
+    <clipPath
+       id="mx-clip-84-413-372-202-0">
+      <rect
+         id="rect11"
+         height="202"
+         width="372"
+         y="413"
+         x="84" />
+    </clipPath>
+    <clipPath
+       id="mx-clip-4-221-252-34-0">
+      <rect
+         id="rect14"
+         height="34"
+         width="252"
+         y="221"
+         x="4" />
+    </clipPath>
+    <clipPath
+       id="mx-clip-4-263-252-42-0">
+      <rect
+         id="rect17"
+         height="42"
+         width="252"
+         y="263"
+         x="4" />
+    </clipPath>
+    <clipPath
+       id="mx-clip-294-151-252-64-0">
+      <rect
+         id="rect20"
+         height="64"
+         width="252"
+         y="151"
+         x="294" />
+    </clipPath>
+    <clipPath
+       id="mx-clip-294-223-252-82-0">
+      <rect
+         id="rect23"
+         height="82"
+         width="252"
+         y="223"
+         x="294" />
+    </clipPath>
+  </defs>
+  <g
+     id="g170">
+    <path
+       id="path28"
+       pointer-events="all"
+       stroke-miterlimit="10"
+       stroke="rgb(0, 0, 0)"
+       fill="rgb(255, 255, 255)"
+       d="M 180 26 L 180 0 L 380 0 L 380 26" />
+    <path
+       id="path30"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="rgb(0, 0, 0)"
+       fill="none"
+       d="M 180 26 L 180 100 L 380 100 L 380 26" />
+    <path
+       id="path32"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="rgb(0, 0, 0)"
+       fill="none"
+       d="M 180 26 L 380 26" />
+    <g
+       id="g36"
+       font-size="12px"
+       text-anchor="middle"
+       pointer-events="none"
+       font-weight="bold"
+       font-family="Helvetica"
+       fill="rgb(0, 0, 0)">
+      <text
+         id="text34"
+         y="17.5"
+         x="279.5">Form</text>
+    </g>
+    <g
+       id="g42"
+       font-size="12px"
+       clip-path="url(#mx-clip-184-31-192-34-0)"
+       pointer-events="none"
+       font-family="Helvetica"
+       fill="rgb(0, 0, 0)">
+      <text
+         id="text38"
+         y="43.5"
+         x="185.5">+ Text: String^</text>
+      <text
+         id="text40"
+         y="57.5"
+         x="185.5">+ Owner: Form^</text>
+    </g>
+    <path
+       id="path44"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="rgb(0, 0, 0)"
+       fill="none"
+       d="M 180 64 L 380 64" />
+    <g
+       id="g48"
+       font-size="12px"
+       clip-path="url(#mx-clip-184-73-192-32-0)"
+       pointer-events="none"
+       font-family="Helvetica"
+       fill="rgb(0, 0, 0)">
+      <text
+         id="text46"
+         y="85.5"
+         x="185.5">+ Close(): void</text>
+    </g>
+    <path
+       id="path50"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="rgb(0, 0, 0)"
+       fill="none"
+       d="M 273.66 310 L 278.63 106.37" />
+    <path
+       id="path52"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="rgb(0, 0, 0)"
+       fill="rgb(0, 0, 0)"
+       d="M 278.75 101.12 L 282.08 108.2 L 278.63 106.37 L 275.08 108.03 Z" />
+    <path
+       id="path54"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="rgb(0, 0, 0)"
+       fill="rgb(255, 255, 255)"
+       d="M 80 336 L 80 310 L 460 310 L 460 336" />
+    <path
+       id="path56"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="rgb(0, 0, 0)"
+       fill="none"
+       d="M 80 336 L 80 610 L 460 610 L 460 336" />
+    <path
+       id="path58"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="rgb(0, 0, 0)"
+       fill="none"
+       d="M 80 336 L 460 336" />
+    <g
+       id="g62"
+       font-size="12px"
+       text-anchor="middle"
+       pointer-events="none"
+       font-weight="bold"
+       font-family="Helvetica"
+       fill="rgb(0, 0, 0)">
+      <text
+         id="text60"
+         y="327.5"
+         x="269.5">MainView</text>
+    </g>
+    <g
+       id="g72"
+       font-size="12px"
+       clip-path="url(#mx-clip-84-341-372-64-0)"
+       pointer-events="none"
+       font-family="Helvetica"
+       fill="rgb(0, 0, 0)">
+      <text
+         id="text64"
+         y="353.5"
+         x="85.5">+ appConfiguration: AppConfiguration^</text>
+      <text
+         id="text66"
+         y="367.5"
+         x="85.5">+ dictionaryManager: DictionaryManager^</text>
+      <text
+         id="text68"
+         y="381.5"
+         x="85.5">+ dictionaryData: DictionaryData^</text>
+      <text
+         id="text70"
+         y="395.5"
+         x="85.5">+ configPath: String^</text>
+    </g>
+    <path
+       id="path74"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="rgb(0, 0, 0)"
+       fill="none"
+       d="M 80 404 L 460 404" />
+    <g
+       id="g102"
+       font-size="12px"
+       clip-path="url(#mx-clip-84-413-372-202-0)"
+       pointer-events="none"
+       font-family="Helvetica"
+       fill="rgb(0, 0, 0)">
+      <text
+         id="text76"
+         y="425.5"
+         x="85.5">+ MainView(void)</text>
+      <text
+         id="text78"
+         y="439.5"
+         x="85.5">+ ~MainView()</text>
+      <text
+         id="text80"
+         y="453.5"
+         x="85.5">+ LoadConfigutation(void): void</text>
+      <text
+         id="text82"
+         y="467.5"
+         x="85.5">+ InitializeComponent(void): void</text>
+      <text
+         id="text84"
+         y="481.5"
+         x="85.5">+ miExit_Click(Object^, EventArgs^): void</text>
+      <text
+         id="text86"
+         y="495.5"
+         x="85.5">+ lbSearchResult_SelectedIndexChanged(Object^, EventArgs^): void</text>
+      <text
+         id="text88"
+         y="509.5"
+         x="85.5">+ txtSearch_TextChanged(Object^, EventArgs^): void</text>
+      <text
+         id="text90"
+         y="523.5"
+         x="85.5">+ btnAdd_Click(Object^, EventArgs^): void</text>
+      <text
+         id="text92"
+         y="537.5"
+         x="85.5">+ btnEdit_Click(Object^, EventArgs^): void</text>
+      <text
+         id="text94"
+         y="551.5"
+         x="85.5">+ OpenWordDialog(WordView^): void</text>
+      <text
+         id="text96"
+         y="565.5"
+         x="85.5">+ btnDelete_Click(Object^, EventArgs^): void</text>
+      <text
+         id="text98"
+         y="579.5"
+         x="85.5">+ miConfig_Click(Object^, EventArgs^): void</text>
+      <text
+         id="text100"
+         y="593.5"
+         x="85.5">+ miAbout_Click(Object^, EventArgs^): void </text>
+    </g>
+    <path
+       id="path104"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="rgb(0, 0, 0)"
+       fill="none"
+       d="M 172.31 190 L 237.66 105.05" />
+    <path
+       id="path106"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="rgb(0, 0, 0)"
+       fill="rgb(0, 0, 0)"
+       d="M 240.86 100.89 L 239.36 108.57 L 237.66 105.05 L 233.81 104.3 Z" />
+    <path
+       id="path108"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="rgb(0, 0, 0)"
+       fill="rgb(255, 255, 255)"
+       d="M 0 216 L 0 190 L 260 190 L 260 216" />
+    <path
+       id="path110"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="rgb(0, 0, 0)"
+       fill="none"
+       d="M 0 216 L 0 300 L 260 300 L 260 216" />
+    <path
+       id="path112"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="rgb(0, 0, 0)"
+       fill="none"
+       d="M 0 216 L 260 216" />
+    <g
+       id="g116"
+       font-size="12px"
+       text-anchor="middle"
+       pointer-events="none"
+       font-weight="bold"
+       font-family="Helvetica"
+       fill="rgb(0, 0, 0)">
+      <text
+         id="text114"
+         y="207.5"
+         x="129.5">ConfigView</text>
+    </g>
+    <g
+       id="g122"
+       font-size="12px"
+       clip-path="url(#mx-clip-4-221-252-34-0)"
+       pointer-events="none"
+       font-family="Helvetica"
+       fill="rgb(0, 0, 0)">
+      <text
+         id="text118"
+         y="233.5"
+         x="5.5">+ appConfiguration: AppConfiguration^</text>
+      <text
+         id="text120"
+         y="247.5"
+         x="5.5">+ dictionaryData: DictionaryData^</text>
+    </g>
+    <path
+       id="path124"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="rgb(0, 0, 0)"
+       fill="none"
+       d="M 0 254 L 260 254" />
+    <g
+       id="g130"
+       font-size="12px"
+       clip-path="url(#mx-clip-4-263-252-42-0)"
+       pointer-events="none"
+       font-family="Helvetica"
+       fill="rgb(0, 0, 0)">
+      <text
+         id="text126"
+         y="275.5"
+         x="5.5">+ btnSave_Click(Object^, EventArgs^): void</text>
+      <text
+         id="text128"
+         y="289.5"
+         x="5.5">+ btnBrowse_Click(Object^, EventArgs^): void</text>
+    </g>
+    <path
+       id="path132"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="rgb(0, 0, 0)"
+       fill="none"
+       d="M 341.25 120 L 327.94 104.79" />
+    <path
+       id="path134"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="rgb(0, 0, 0)"
+       fill="rgb(0, 0, 0)"
+       d="M 324.49 100.84 L 331.73 103.8 L 327.94 104.79 L 326.46 108.41 Z" />
+    <path
+       id="path136"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="rgb(0, 0, 0)"
+       fill="rgb(255, 255, 255)"
+       d="M 290 146 L 290 120 L 550 120 L 550 146" />
+    <path
+       id="path138"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="rgb(0, 0, 0)"
+       fill="none"
+       d="M 290 146 L 290 300 L 550 300 L 550 146" />
+    <path
+       id="path140"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="rgb(0, 0, 0)"
+       fill="none"
+       d="M 290 146 L 550 146" />
+    <g
+       id="g144"
+       font-size="12px"
+       text-anchor="middle"
+       pointer-events="none"
+       font-weight="bold"
+       font-family="Helvetica"
+       fill="rgb(0, 0, 0)">
+      <text
+         id="text142"
+         y="137.5"
+         x="419.5">WordView</text>
+    </g>
+    <g
+       id="g154"
+       font-size="12px"
+       clip-path="url(#mx-clip-294-151-252-64-0)"
+       pointer-events="none"
+       font-family="Helvetica"
+       fill="rgb(0, 0, 0)">
+      <text
+         id="text146"
+         y="163.5"
+         x="295.5">+ appConfiguration: AppConfiguration^</text>
+      <text
+         id="text148"
+         y="177.5"
+         x="295.5">+ dictionaryManager: DictionaryManager^</text>
+      <text
+         id="text150"
+         y="191.5"
+         x="295.5">+ dictionaryData: DictionaryData^</text>
+      <text
+         id="text152"
+         y="205.5"
+         x="295.5">+ configPath: String^</text>
+    </g>
+    <path
+       id="path156"
+       pointer-events="none"
+       stroke-miterlimit="10"
+       stroke="rgb(0, 0, 0)"
+       fill="none"
+       d="M 290 214 L 550 214" />
+    <g
+       id="g168"
+       font-size="12px"
+       clip-path="url(#mx-clip-294-223-252-82-0)"
+       pointer-events="none"
+       font-family="Helvetica"
+       fill="rgb(0, 0, 0)">
+      <text
+         id="text158"
+         y="235.5"
+         x="295.5">+ WordView(void): void</text>
+      <text
+         id="text160"
+         y="249.5"
+         x="295.5">+ WordView(String ^, String ^): void</text>
+      <text
+         id="text162"
+         y="263.5"
+         x="295.5">+ InitializeComponent(void): void</text>
+      <text
+         id="text164"
+         y="277.5"
+         x="295.5">+ GetTranslation(void): String ^</text>
+      <text
+         id="text166"
+         y="291.5"
+         x="295.5">+ GetWord(void): String ^</text>
+    </g>
+  </g>
+</svg>
