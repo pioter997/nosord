@@ -183,6 +183,7 @@
   <ItemGroup>
     <EmbeddedResource Include="AboutView.resx">
       <DependentUpon>AboutView.h</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ConfigView.resx">
       <DependentUpon>ConfigView.h</DependentUpon>

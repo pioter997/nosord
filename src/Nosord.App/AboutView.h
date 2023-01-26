@@ -22,19 +22,19 @@ namespace Nosord {
         AboutView()
         {
             InitializeComponent();
-            // https://patorjk.com/software/taag/#p=display&f=Georgi16&t=NOSORD
+            // https://patorjk.com/software/taag/#p=display&f=Georgi16&t=SLOWNIK
             String^ aboutText =
-                L"___      ___   ____      ____      ____   ________   ________\r\n" +
-                L"`MM\\     `M'  6MMMMb    6MMMMb\\   6MMMMb  `MMMMMMMb. `MMMMMMMb.\r\n" +
-                L" MMM\\     M  8P    Y8  6M'    `  8P    Y8  MM    `Mb  MM    `Mb\r\n" +
-                L" M\\MM\\    M 6M      Mb MM       6M      Mb MM     MM  MM     MM\r\n" +
-                L" M \\MM\\   M MM      MM YM.      MM      MM MM     MM  MM     MM\r\n" +
-                L" M  \\MM\\  M MM      MM  YMMMMb  MM      MM MM    .M9  MM     MM\r\n" +
-                L" M   \\MM\\ M MM      MM      `Mb MM      MM MMMMMMM9'  MM     MM\r\n" +
-                L" M    \\MM\\M MM      MM       MM MM      MM MM  \\M\\    MM     MM\r\n" +
-                L" M     \\MMM YM      M9       MM YM      M9 MM   \\M\\   MM     MM\r\n" +
-                L" M      \\MM  8b    d8  L    ,M9  8b    d8  MM    \\M\\  MM    .M9\r\n" +
-                L"_M_      \\M   YMMMM9   MYMMMM9    YMMMM9  _MM_    \\M\\_MMMMMMM9'\r\n" +
+                L"   ____  ____       ____   ____              ___ ___      _________    __   \r\n" +
+                L"  6MMMMb `MM'      6MMMMb  `Mb(      db      )d' `MM\     `M'`MM`MM    d'   \r\n" +
+                L" 6M'    ` MM      8P    Y8  YM.     ,PM.     ,P   MMM\     M  MM MM   d'    \r\n" +
+                L" MM       MM     6M      Mb `Mb     d'Mb     d'   M\MM\    M  MM MM  d'     \r\n" +
+                L" YM.      MM     MM      MM  YM.   ,P YM.   ,P    M \MM\   M  MM MM d'      \r\n" +
+                L"  YMMMMb  MM     MM      MM  `Mb   d' `Mb   d'    M  \MM\  M  MM MMd'       \r\n" +
+                L"      `Mb MM     MM      MM   YM. ,P   YM. ,P     M   \MM\ M  MM MMYM.      \r\n" +
+                L"       MM MM     MM      MM   `Mb d'   `Mb d'     M    \MM\M  MM MM YM.     \r\n" +
+                L"       MM MM     YM      M9    YM,P     YM,P      M     \MMM  MM MM  YM.    \r\n" +
+                L" L    ,M9 MM      8b    d8     `MM'     `MM'      M      \MM  MM MM   YM.   \r\n" +
+                L" MYMMMM9 _MMMMMMM  YMMMM9       YP       YP      _M_      \M _MM_MM_   YM._ \r\n" +
                 L"\r\n" +
                 L"PROJEKT: S£OWNIK\r\n" +
                 L"ZAJÊCIA: PROGRAMOWANIE OBIEKTOWE\r\n" +

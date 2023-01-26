@@ -26,7 +26,7 @@ namespace Nosord {
     {
     public:
         /// <summary>
-        /// constuctor of the object
+        /// Constuctor of the object
         /// </summary>
         /// <param name=""></param>
         MainView(void)
@@ -37,7 +37,7 @@ namespace Nosord {
 
     protected:
         /// <summary>
-        /// Clean up any resources being used//destructor
+        /// Clean up any resources being used // destructor
         /// </summary>
         ~MainView()
         {
@@ -89,19 +89,19 @@ namespace Nosord {
                 String^ defaultDictionaryDescription = "S³ownik polsko-angielski";
                 String^ defaultDictionaryFileName = "pl-en.dict";
 
-                // gets the path to the directory data
+                // Gets the path to the directory data
                 String^ dataDirectory = Path::Combine(Path::GetDirectoryName(Application::ExecutablePath), "data");
-                // if data dictionary does not exist  
+                // If data dictionary does not exist  
                 if (!Directory::Exists(dataDirectory)) {
-                    // creates dictionary data directory
+                    // Creates dictionary data directory
                     Directory::CreateDirectory(dataDirectory);
                 }
 
-                //gets the path to the default dictionary file
+                // Gets the path to the default dictionary file
                 String^ defaultDictionaryFilePath = Path::Combine(dataDirectory, defaultDictionaryFileName);
-                //initialize the dictionary manager local variable
+                // Initialize the dictionary manager local variable
                 dictionaryManager = gcnew DictionaryManager(defaultDictionaryName, defaultDictionaryDescription, defaultDictionaryFilePath);
-                //the dictionary object is created 
+                // The dictionary object is created 
                 this->dictionaryData = dictionaryManager->GetDictionaryData();
 
                 FileStream^ configFileStream;

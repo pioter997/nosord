@@ -7,8 +7,15 @@ using namespace System::Windows::Forms;
 [STAThread]
 int main()
 {
+	// Enable current visual styles for the app 
 	Application::EnableVisualStyles();
+
+	// Disable the default text rendering for the app
 	Application::SetCompatibleTextRenderingDefault(false);
-	Application::Run(gcnew Nosord::MainView());
-	return 0;
+
+	// Run the main app window
+	Application::Run(gcnew Nosord::MainView()); 
+
+	// Program completion
+	return 0;                                                
 }
