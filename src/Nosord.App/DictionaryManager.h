@@ -6,21 +6,50 @@ namespace Nosord {
     using namespace System::IO;
     using namespace System::Runtime::Serialization::Formatters::Binary;
 
-    ref class DictionaryManager
+    /// <summary>
+    /// The base class for the DictionaryManager class.
+    /// </summary>
+    ref class DictionaryBase
+    {
+    protected:
+        String^ dictionaryFilePath;
+        String^ dictionaryName;
+        String^ dictionaryDescription;
+    };
+
+    ref class DictionaryManager : DictionaryBase
     {
     public:
-        DictionaryManager(String^ filePath)
+        /// <summary>
+        /// Default contstructor
+        /// </summary>
+        DictionaryManager() { }
+
+        /// <summary>
+        /// Parametrized constructor.
+        /// </summary>
+        /// <param name="filePath"></param>
+        DictionaryManager(String^ filePath) : DictionaryManager()
         {
             dictionaryFilePath = filePath;
         }
 
-        DictionaryManager(String^ name, String^ description, String^ filePath)
+        /// <summary>
+        /// Parametrized constructor.
+        /// </summary>
+        /// <param name="name">The name of the dictionary.</param>
+        /// <param name="description">The discription of the dicitonary.</param>
+        /// <param name="filePath">The file path to the dictionary file.</param>
+        DictionaryManager(String^ name, String^ description, String^ filePath) : DictionaryManager(filePath)
         {
             dictionaryName = name;
             dictionaryDescription = description;
-            dictionaryFilePath = filePath;
         }
 
+        /// <summary>
+        /// Gets the dicitonary data.
+        /// </summary>
+        /// <returns>Returns the DictionaryData object.</returns>
         DictionaryData^ GetDictionaryData()
         {
             DictionaryData^ dictionaryData;
@@ -48,6 +77,11 @@ namespace Nosord {
             return dictionaryData;
         }
 
+        /// <summary>
+        /// Save dictionary data into file.
+        /// </summary>
+        /// <param name="dictionaryData"></param>
+        /// <returns></returns>
         System::Void SaveDictionaryData(DictionaryData^ dictionaryData)
         {
             auto binaryFormatter = gcnew BinaryFormatter();
@@ -62,11 +96,12 @@ namespace Nosord {
                 fileStream->Close();
             }
         }
+
     private:
-        String^ dictionaryName;
-        String^ dictionaryDescription;
-        String^ dictionaryFilePath;
-        
+        /// <summary>
+        /// Generates empty dictionary data object.
+        /// </summary>
+        /// <returns>Returns </returns>
         DictionaryData^ GenerateDictionaryData()
         {
             auto dictionaryData = gcnew DictionaryData();
